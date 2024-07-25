@@ -1,0 +1,531 @@
+/* home-contents */
+.home-contents {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* banner section ==================================> */
+.banner-container {
+    position: relative;
+    min-height: 500px;
+    width: 100vw;
+    background-image: url('https://digitaltravelcouple.com/wp-content/uploads/2022/03/diamond-beach-nusa-penida.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.banner-contents {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+
+    h1 {
+        color: white;
+        font-size: 50px;
+        font-weight: 600;
+    }
+
+    p:not(.icon) {
+        color: white;
+        font-size: 24px;
+        font-weight: 500;
+        margin: 16px 0 25px;
+    }
+}
+
+.booking-container {
+    background-color: #ffff;
+    padding: 20px 16px;
+    border-radius: 100px;
+    font-weight: 600;
+
+
+    form {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    input {
+        border: none;
+        padding: 3px 5px;
+        margin: 3px 0;
+        border-radius: 10px;
+    }
+
+    input:focus {
+        outline: 1px solid gray;
+    }
+
+    input::placeholder,
+    input {
+        color: rgb(36, 36, 36);
+    }
+
+    .icon {
+        font-size: 30px;
+    }
+
+    .search-icon {
+        background-color: rgb(13, 163, 163);
+        padding: 8px;
+        height: 30px;
+        width: 30px;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        ion-icon {
+            color: white;
+        }
+    }
+}
+
+/* icon style ==================================> */
+ion-icon {
+    color: gray;
+}
+
+/* policy section ==================================> */
+.policy-container {
+    margin: 100px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+.policy-card {
+    text-align: center;
+
+    img {
+        width: 80px;
+        align-items: center;
+    }
+
+    h3 {
+        font-weight: 600;
+        margin: 10px 0;
+    }
+
+    p {
+        color: rgb(61, 60, 60);
+        font-weight: 500;
+    }
+}
+
+/* top-destination-container ======================> */
+.top-destination-container {
+    margin-bottom: 40px;
+
+    /* swiper styles  */
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+
+    .title-div {
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h3 {
+            font-size: 30px;
+            text-transform: capitalize;
+        }
+    }
+
+
+    button {
+        margin-top: 30px;
+    }
+
+}
+
+.top-destination-card {
+    position: relative;
+    /* width: 320px; */
+    height: 450px;
+    border-radius: 15px;
+    cursor: pointer;
+
+    img {
+        border-radius: inherit;
+        height: 100%;
+        width: 100%;
+    }
+
+
+    p {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        z-index: 2;
+        color: white;
+        font-size: 30px;
+        font-weight: 600;
+    }
+}
+
+/* inspired-container ======================> */
+.inspired-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    margin: 80px 0;
+}
+
+.inspired-card {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    border-radius: 20px;
+
+    img {
+        border-radius: inherit;
+        position: absolute;
+        height: inherit;
+        width: inherit;
+        max-height: inherit;
+        z-index: 0;
+    }
+
+
+
+    .inspired-card-content {
+        border-radius: inherit;
+        color: white;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 2;
+
+        padding: 40px 100px 40px 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            /* color: gray; */
+        }
+    }
+}
+
+/* top-activities-container==============================> */
+.top-activities-container {
+    margin-bottom: 50px;
+
+    .title {
+        font-size: 30px;
+        text-transform: capitalize;
+        margin: 100px 0 50px;
+    }
+
+    .cards-div {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 30px;
+
+
+        .activity-card {
+            width: 100%;
+            border: 1px solid gray;
+            border-radius: 12px;
+
+            img {
+                width: inherit;
+                height: 240px;
+                border-radius: inherit;
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+
+            .activity-card-content {
+                padding: 10px;
+
+                .line-through,
+                span {
+                    color: grey;
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+
+                .icon {
+                    font-size: 20px;
+                    font-weight: 600;
+
+                    span {
+                        margin-top: -105px;
+                    }
+                }
+
+                div:not(:last-child),
+                h3 {
+                    margin-bottom: 10px;
+                }
+
+                div:last-child {
+                    margin-bottom: -15px;
+                }
+
+                .ratings-container {
+                    display: flex;
+                    align-items: start;
+                    gap: 10px;
+                }
+
+                .ratings-container>p {
+                    color: rgb(52, 53, 55);
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+
+                .ratings {
+                    display: flex;
+                    align-items: center;
+                    gap: 3px;
+                    margin-top: 1px;
+
+                    ion-icon {
+                        color: rgb(251, 150, 17);
+                    }
+                }
+
+                .way {
+                    padding: 5px 12px;
+                    border-radius: 8px;
+                    font-weight: 600;
+                }
+
+                .way-escorted {
+                    background-color: gainsboro;
+                    color: rgb(52, 53, 55);
+                }
+
+                .way-wild {
+                    background-color: rgb(8, 150, 115);
+                    color: white;
+                }
+
+                .way-rail {
+                    background-color: rgb(251, 150, 17);
+                    color: white;
+                }
+
+                .way-cruise {
+                    background-color: rgb(42, 193, 220);
+                    color: white;
+                }
+
+                .way-river {
+                    background-color: rgb(255, 207, 207);
+                    color: rgb(142, 27, 27);
+                }
+            }
+        }
+    }
+}
+
+/* subscribe-container ===============================> */
+.subscribe-container {
+    position: relative;
+    min-height: 400px;
+    width: 100%;
+    background-image: url('https://digitaltravelcouple.com/wp-content/uploads/2022/03/diamond-beach-nusa-penida.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    margin-top: 100px;
+    margin-bottom: 70px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+
+    .subscribe-content {
+        background-color: black;
+        color: white;
+        width: 50%;
+        margin-left: 100px;
+        padding: 40px;
+        border-radius: 15px;
+
+        h3 {
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 16px;
+            color: rgb(212, 207, 207);
+            margin: 15px 0;
+        }
+
+        input {
+            padding: 14px 28px;
+            border-radius: 35px;
+            margin: 0 5px;
+        }
+
+        form {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        input[type="email"] {
+            flex-grow: 1;
+            border: none;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background-color: rgb(13, 163, 163);
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.5s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: white;
+            color: rgb(13, 163, 163);
+        }
+
+        input::placeholder {
+            font-weight: 600;
+        }
+
+    }
+}
+
+/* image-gallery-container ============================> */
+.image-gallery-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin-bottom: 50px;
+
+    .image-card {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        overflow: hidden;
+
+        img {
+            width: inherit;
+            height: inherit;
+            transition: all 0.5s;
+        }
+
+        h3 {
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            position: absolute;
+            bottom: -100px;
+            transition: all 0.5s;
+        }
+    }
+
+    .image-card:hover h3 {
+        bottom: 15px;
+        left: 15px;
+        z-index: 1;
+    }
+
+    .image-card:hover img {
+        transform: scale(1.3);
+    }
+}
+
+/* top-activities-container==============================> */
+.home-blog-container {
+    margin-bottom: 50px;
+
+    .title-div {
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h3 {
+            font-size: 30px;
+            text-transform: capitalize;
+        }
+    }
+
+
+
+    .home-blog-card {
+        width: 100%;
+        border: 1px solid gray;
+        border-radius: 12px;
+
+        img {
+            width: inherit;
+            height: 180px;
+            border-radius: inherit;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .way {
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            background-color: gainsboro;
+            color: rgb(52, 53, 55);
+            width: fit-content;
+        }
+
+        .home-blog-content {
+            padding: 10px;
+
+            p {
+                margin: 5px 0;
+            }
+
+            .icon {
+                font-size: 20px;
+                font-weight: 600;
+
+                span {
+                    margin-top: -105px;
+                }
+            }
+        }
+    }
+
+    button {
+        margin-top: 30px;
+    }
+
+}

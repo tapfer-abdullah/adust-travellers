@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travelers</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/CSS/home.css">
+
+    <!-- other links  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <nav>
+        <a href="/" id="home-link">Home</a>
+        <a href="/destinations" id="destinations-link">Destinations</a>
+        <a href="/?post=all" id="posts-link">Posts</a>
+
+    </nav>
+    <div id="app">
+        <div id="home" class="page">
+            <!-- banner section -->
+            <div class="banner-container">
+                <div class="overlay">
+                    <div class="banner-contents">
+                        <h1>Millions of experiences. One simple search</h1>
+                        <p>Find what make you happy anytime, anywhere</p>
+                        <div class="booking-container">
+                            <form>
+                                <div class="flex items-center gap-3">
+                                    <p class="icon"><ion-icon name="location-outline"></ion-icon></p>
+                                    <div>
+                                        <label for="search-title">Where to?</label> <br>
+                                        <input type="text" name="search-title" id="search-title"
+                                            placeholder="Search a place or activity">
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <p class="icon"><ion-icon name="calendar-clear-outline"></ion-icon></p>
+                                    <div>
+                                        <label for="search-date-from">When?</label> <br>
+                                        <div class="flex items-center gap-3">
+                                            <input type="date" name="search-date-from" id="search-date-from">
+                                            <span>To:</span>
+                                            <input type="date" name="search-date-to" id="search-date-to">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="icon search-icon"><ion-icon name="search-outline"></ion-icon>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- home-contents -->
+            <div class="home-contents">
+                <!-- policy section -->
+                <div class="policy-container">
+                    <div class="policy-card">
+                        <img src="/public/assets/icon/earth-globe.png" alt="">
+                        <h3>Discover the possibilities</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, nobis!</p>
+                    </div>
+                    <div class="policy-card">
+                        <img src="/public/assets/icon/earth-globe.png" alt="">
+                        <h3>Discover the possibilities</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, nobis!</p>
+                    </div>
+                    <div class="policy-card">
+                        <img src="/public/assets/icon/earth-globe.png" alt="">
+                        <h3>Discover the possibilities</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, nobis!</p>
+                    </div>
+                    <div class="policy-card">
+                        <img src="/public/assets/icon/earth-globe.png" alt="">
+                        <h3>Discover the possibilities</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, nobis!</p>
+                    </div>
+                </div>
+
+                <!-- top destinations section-->
+                <div class="top-destination-container">
+                    <div class="title-div">
+                        <h3>Top destinations for your next vacation</h3>
+                        <div>L R</div>
+                    </div>
+
+                    <div class="destinations-swipper swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="top-destination-card">
+                                    <img src="https://www.ncl.com/sites/default/files/1000x667-Bali-Indonesia-Cruise-Norwegian-couple.jpg"
+                                        alt="">
+                                    <div class="overlay">
+
+                                    </div>
+                                    <p>Bali</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="top-destination-card">
+                                    <img src="https://www.ncl.com/sites/default/files/1000x667-Bali-Indonesia-Cruise-Norwegian-couple.jpg"
+                                        alt="">
+                                    <div class="overlay">
+
+                                    </div>
+                                    <p>Bali</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="top-destination-card">
+                                    <img src="https://www.ncl.com/sites/default/files/1000x667-Bali-Indonesia-Cruise-Norwegian-couple.jpg"
+                                        alt="">
+                                    <div class="overlay">
+
+                                    </div>
+                                    <p>Bali</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="top-destination-card">
+                                    <img src="https://www.ncl.com/sites/default/files/1000x667-Bali-Indonesia-Cruise-Norwegian-couple.jpg"
+                                        alt="">
+                                    <div class="overlay">
+
+                                    </div>
+                                    <p>Bali</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="top-destination-card">
+                                    <img src="https://www.ncl.com/sites/default/files/1000x667-Bali-Indonesia-Cruise-Norwegian-couple.jpg"
+                                        alt="">
+                                    <div class="overlay">
+
+                                    </div>
+                                    <p>Bali</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div class="flex items-center justify-center"><button id="top-destination-btn"
+                            class="btn-outline">See all destinations</button></div>
+                </div>
+
+                <!-- inspired section -->
+                <div class="inspired-container">
+                    <div class="inspired-card">
+                        <img src="https://baliindonesiaparadise.wordpress.com/wp-content/uploads/2017/04/wp-image-1278322618jpg.jpg?w=730&h=411"
+                            alt="">
+                        <div class="overlay"></div>
+                        <div class="inspired-card-content">
+                            <div>
+                                <h3>South BAli (Kuta, Conggu, Uluwatu, Jimbaran)</h3>
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore, nihil!</p>
+                            </div>
+                            <button id="inspired-btn-1" class="btn-solid">See all activities</button>
+                        </div>
+                    </div>
+                    <div class="inspired-card">
+                        <img src="https://baliindonesiaparadise.wordpress.com/wp-content/uploads/2017/04/wp-image-1278322618jpg.jpg?w=730&h=411"
+                            alt="">
+                        <div class="overlay"></div>
+                        <div class="inspired-card-content">
+                            <div>
+                                <h3>South BAli (Kuta, Conggu, Uluwatu, Jimbaran)</h3>
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore, nihil!</p>
+                            </div>
+                            <button id="inspired-btn-1" class="btn-solid">See all activities</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- top activities -->
+                <div class="top-activities-container">
+                    <h3 class="title">Popular activities</h3>
+                    <div class="cards-div">
+                        <div class="activity-card">
+                            <img src="https://st3.depositphotos.com/4080643/16492/i/450/depositphotos_164926010-stock-photo-pura-ulun-danu-bratan-temple.jpg"
+                                alt="">
+                            <div class="activity-card-content">
+                                <div class="flex gap-3 items-start">
+                                    <p class="icon"><ion-icon name="location-outline"></ion-icon></p>
+                                    <p class="capitalized">European way, Southampton, United Kingdom</p>
+                                </div>
+                                <h3>Discover Singapore</h3>
+                                <div class="ratings-container">
+                                    <div class="ratings">
+                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                        <p class="icon"><ion-icon name="star-half"></ion-icon></p>
+                                    </div>
+                                    <p class="">4.5 (50 reviews)</p>
+                                </div>
+
+                                <div class="flex gap-3 items-center">
+                                    <p class="way way-rail">Escorted Tour</p>
+                                    <p class="way way-cruise">Rail Tour</p>
+                                </div>
+
+                                <div class="divider"></div>
+
+                                <div class="flex gap-3 items-center justify-between">
+                                    <div class="">
+                                        <h4 class="line-through">$100</h4>
+                                        <h3><span>From </span>$92</h3>
+                                    </div>
+
+                                    <div class="flex gap-3 items-center">
+                                        <p class="icon"><ion-icon name="time-outline"></ion-icon></p>
+                                        <p class="">5 days 4 nights</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="activity-card">
+                            <img src="https://st3.depositphotos.com/4080643/16492/i/450/depositphotos_164926010-stock-photo-pura-ulun-danu-bratan-temple.jpg"
+                                alt="">
+                            <div class="activity-card-content">
+                                <div class="flex gap-3 items-start">
+                                    <p class="icon"><ion-icon name="location-outline"></ion-icon></p>
+                                    <p class="capitalized">European way, Southampton, United Kingdom</p>
+                                </div>
+                                <h3>Discover Singapore</h3>
+                                <div class="ratings-container">
+                                    <div class="ratings">
+                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                        <p class="icon"><ion-icon name="star-half"></ion-icon></p>
+                                    </div>
+                                    <p class="">4.5 (50 reviews)</p>
+                                </div>
+
+                                <div class="flex gap-3 items-center">
+                                    <p class="way way-river">Escorted Tour</p>
+                                    <p class="way way-escorted">Rail Tour</p>
+                                </div>
+
+                                <div class="divider"></div>
+
+                                <div class="flex gap-3 items-center justify-between">
+                                    <div class="">
+                                        <h4 class="line-through">$100</h4>
+                                        <h3><span>From </span>$92</h3>
+                                    </div>
+
+                                    <div class="flex gap-3 items-center">
+                                        <p class="icon"><ion-icon name="time-outline"></ion-icon></p>
+                                        <p class="">5 days 4 nights</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="activity-card">
+                            <img src="https://st3.depositphotos.com/4080643/16492/i/450/depositphotos_164926010-stock-photo-pura-ulun-danu-bratan-temple.jpg"
+                                alt="">
+                            <div class="activity-card-content">
+                                <div class="flex gap-3 items-start">
+                                    <p class="icon"><ion-icon name="location-outline"></ion-icon></p>
+                                    <p class="capitalized">European way, Southampton, United Kingdom</p>
+                                </div>
+                                <h3>Discover Singapore</h3>
+                                <div class="ratings-container">
+                                    <div class="ratings">
+                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                        <p class="icon"><ion-icon name="star-half"></ion-icon></p>
+                                    </div>
+                                    <p class="">4.5 (50 reviews)</p>
+                                </div>
+
+                                <div class="flex gap-3 items-center">
+                                    <p class="way way-wild">Escorted Tour</p>
+                                    <p class="way way-cruise">Rail Tour</p>
+                                </div>
+
+                                <div class="divider"></div>
+
+                                <div class="flex gap-3 items-center justify-between">
+                                    <div class="">
+                                        <h4 class="line-through">$100</h4>
+                                        <h3><span>From </span>$92</h3>
+                                    </div>
+
+                                    <div class="flex gap-3 items-center">
+                                        <p class="icon"><ion-icon name="time-outline"></ion-icon></p>
+                                        <p class="">5 days 4 nights</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="activity-card">
+                            <img src="https://st3.depositphotos.com/4080643/16492/i/450/depositphotos_164926010-stock-photo-pura-ulun-danu-bratan-temple.jpg"
+                                alt="">
+                            <div class="activity-card-content">
+                                <div class="flex gap-3 items-start">
+                                    <p class="icon"><ion-icon name="location-outline"></ion-icon></p>
+                                    <p class="capitalized">European way, Southampton, United Kingdom</p>
+                                </div>
+                                <h3>Discover Singapore</h3>
+                                <div class="ratings-container">
+                                    <div class="ratings">
+                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                        <p class="icon"><ion-icon name="star-half"></ion-icon></p>
+                                    </div>
+                                    <p class="">4.5 (50 reviews)</p>
+                                </div>
+
+                                <div class="flex gap-3 items-center">
+                                    <p class="way way-wild">Escorted Tour</p>
+                                    <p class="way way-cruise">Rail Tour</p>
+                                </div>
+
+                                <div class="divider"></div>
+
+                                <div class="flex gap-3 items-center justify-between">
+                                    <div class="">
+                                        <h4 class="line-through">$100</h4>
+                                        <h3><span>From </span>$92</h3>
+                                    </div>
+
+                                    <div class="flex gap-3 items-center">
+                                        <p class="icon"><ion-icon name="time-outline"></ion-icon></p>
+                                        <p class="">5 days 4 nights</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- subscribe news letter -->
+                <div class="subscribe-container">
+                    <!-- <div class="overlay"></div> -->
+                    <div class="subscribe-content">
+                        <h3>Subscribe & Get 20% off</h3>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. At, corrupti?</p>
+                        <form>
+                            <input type="email" name="email" id="subscribe-email" placeholder="Your email address">
+                            <input type="submit" value="Sing up">
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- image gallery section -->
+            <div class="full-screen image-gallery-container">
+                <div class="image-card">
+                    <img src="https://www.baliholidaysecrets.com/wp-content/uploads/2018/11/wanagiri-hidden-hills-swings-bali-holiday-secrets-590x738.jpg"
+                        alt="">
+                    <h3>Bali</h3>
+                </div>
+                <div class="image-card">
+                    <img src="https://cdn.forevervacation.com/uploads/attraction/bali-jungle-swing-3363.JPG" alt="">
+                    <h3>Bali</h3>
+                </div>
+                <div class="image-card">
+                    <img src="https://www.baliholidaysecrets.com/wp-content/uploads/2018/11/wanagiri-hidden-hills-swings-bali-holiday-secrets-590x738.jpg"
+                        alt="">
+                    <h3>Bali</h3>
+                </div>
+                <div class="image-card">
+                    <img src="https://cdn.forevervacation.com/uploads/attraction/bali-jungle-swing-3363.JPG" alt="">
+                    <h3>Bali</h3>
+                </div>
+                <div class="image-card">
+                    <img src="https://www.baliholidaysecrets.com/wp-content/uploads/2018/11/wanagiri-hidden-hills-swings-bali-holiday-secrets-590x738.jpg"
+                        alt="">
+                    <h3>Bali</h3>
+                </div>
+                <div class="image-card">
+                    <img src="https://cdn.forevervacation.com/uploads/attraction/bali-jungle-swing-3363.JPG" alt="">
+                    <h3>Bali</h3>
+                </div>
+            </div>
+            <div class="home-contents">
+                <!-- home blog section-->
+                <div class="home-blog-container">
+                    <div class="title-div">
+                        <h3>Top destinations for your next vacation</h3>
+                        <div>L R</div>
+                    </div>
+
+                    <div class="destinations-swipper swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="home-blog-card">
+                                    <img src="https://st3.depositphotos.com/4080643/16492/i/450/depositphotos_164926010-stock-photo-pura-ulun-danu-bratan-temple.jpg"
+                                        alt="">
+                                    <div class="home-blog-content">
+                                        <p class="way">Escorted Tour</p>
+                                        <h3>Discover Singapore</h3>
+                                        <p class="">24 September 2024</p>
+                                        <p class="capitalized">European way, Southampton, United Kingdom</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="home-blog-card">
+                                    <img src="https://st3.depositphotos.com/4080643/16492/i/450/depositphotos_164926010-stock-photo-pura-ulun-danu-bratan-temple.jpg"
+                                        alt="">
+                                    <div class="home-blog-content">
+                                        <p class="way">Escorted Tour</p>
+                                        <h3>Discover Singapore</h3>
+                                        <p class="">24 September 2024</p>
+                                        <p class="capitalized">European way, Southampton, United Kingdom</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="home-blog-card">
+                                    <img src="https://st3.depositphotos.com/4080643/16492/i/450/depositphotos_164926010-stock-photo-pura-ulun-danu-bratan-temple.jpg"
+                                        alt="">
+                                    <div class="home-blog-content">
+                                        <p class="way">Escorted Tour</p>
+                                        <h3>Discover Singapore</h3>
+                                        <p class="">24 September 2024</p>
+                                        <p class="capitalized">European way, Southampton, United Kingdom</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="home-blog-card">
+                                    <img src="https://st3.depositphotos.com/4080643/16492/i/450/depositphotos_164926010-stock-photo-pura-ulun-danu-bratan-temple.jpg"
+                                        alt="">
+                                    <div class="home-blog-content">
+                                        <p class="way">Escorted Tour</p>
+                                        <h3>Discover Singapore</h3>
+                                        <p class="">24 September 2024</p>
+                                        <p class="capitalized">European way, Southampton, United Kingdom</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="home-blog-card">
+                                    <img src="https://st3.depositphotos.com/4080643/16492/i/450/depositphotos_164926010-stock-photo-pura-ulun-danu-bratan-temple.jpg"
+                                        alt="">
+                                    <div class="home-blog-content">
+                                        <p class="way">Escorted Tour</p>
+                                        <h3>Discover Singapore</h3>
+                                        <p class="">24 September 2024</p>
+                                        <p class="capitalized">European way, Southampton, United Kingdom</p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div class="flex items-center justify-center"><button id="top-destination-btn"
+                            class="btn-outline">See all stories</button></div>
+                </div>
+            </div>
+
+
+            <!-- pages ********************************************************************** -->
+            <div id="posts" class="page hidden">
+                <h3>All Posts</h3>
+
+                <div class="all-posts" id="all-posts">
+                    <!-- <div class="single-post">
+                    <img src="/public/assets/menu/soup-bg.jpg" alt="">
+                    <div>
+                        <div>
+                            <p>Price: $50</p>
+                            <p>Ratings: *****</p>
+                        </div>
+                        <a href="/?post=1" onclick="navigate">View Details</a>
+                    </div>
+                </div> -->
+                </div>
+            </div>
+            <div id="post" class="page hidden">This is a post page. Post ID: <span id="post-id"></span></div>
+        </div>
+
+        <script src="script.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+                slidesPerView: 4,
+                spaceBetween: 30,
+                freeMode: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+        </script>
+
+</body>
+
+</html>

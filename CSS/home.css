@@ -1,15 +1,10 @@
-/* home-contents */
-.home-contents {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
 /* banner section ==================================> */
 .banner-container {
     position: relative;
     min-height: 500px;
     width: 100vw;
-    background-image: url('https://digitaltravelcouple.com/wp-content/uploads/2022/03/diamond-beach-nusa-penida.jpg');
+    /* background-image: url('https://digitaltravelcouple.com/wp-content/uploads/2022/03/diamond-beach-nusa-penida.jpg'); */
+    background-image: url('https://www.luxurygold.com/media/natpqbys/italy_cinqueterre_hero01.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -245,7 +240,7 @@ ion-icon {
     .title {
         font-size: 30px;
         text-transform: capitalize;
-        margin: 100px 0 50px;
+        margin: 100px 0 20px;
     }
 
     .cards-div {
@@ -265,6 +260,7 @@ ion-icon {
                 border-radius: inherit;
                 border-bottom-right-radius: 0;
                 border-bottom-left-radius: 0;
+                overflow: hidden;
             }
 
             .activity-card-content {
@@ -481,8 +477,6 @@ ion-icon {
             text-transform: capitalize;
         }
     }
-
-
 
     .home-blog-card {
         width: 100%;

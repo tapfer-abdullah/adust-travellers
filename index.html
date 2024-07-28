@@ -5,20 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travelers</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="CSS/main.css">
     <link rel="stylesheet" href="/CSS/home.css">
 
     <!-- other links  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 
 <body>
-    <nav>
-        <a href="/" id="home-link">Home</a>
-        <a href="/destinations" id="destinations-link">Destinations</a>
-        <a href="/?post=all" id="posts-link">Posts</a>
+    <!-- icons  -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-    </nav>
+    <!-- navbar======================================>-->
+    <nav id="nav"></nav>
+    <!-- single page container============================>-->
     <div id="app">
         <div id="home" class="page">
             <!-- banner section -->
@@ -41,11 +43,12 @@
                                     <p class="icon"><ion-icon name="calendar-clear-outline"></ion-icon></p>
                                     <div>
                                         <label for="search-date-from">When?</label> <br>
-                                        <div class="flex items-center gap-3">
+                                        <!-- <div class="flex items-center gap-3">
                                             <input type="date" name="search-date-from" id="search-date-from">
                                             <span>To:</span>
                                             <input type="date" name="search-date-to" id="search-date-to">
-                                        </div>
+                                        </div> -->
+                                        <input type="text" id="date-range" placeholder="Select Date Range">
                                     </div>
 
                                 </div>
@@ -88,64 +91,98 @@
                 <div class="top-destination-container">
                     <div class="title-div">
                         <h3>Top destinations for your next vacation</h3>
-                        <div>L R</div>
+                        <div class="swiper-btns">
+                            <div class="relative">
+                                <div class="swiper-button-prev swiper-button-prev1"><ion-icon
+                                        name="arrow-back"></ion-icon></div>
+                            </div>
+                            <div class="relative">
+                                <div class="swiper-button-next swiper-button-next1"><ion-icon
+                                        name="arrow-forward"></ion-icon></div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="destinations-swipper swiper mySwiper">
+                    <div class="destinations-swipper swiper mySwiper1">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <div class="top-destination-card">
-                                    <img src="https://www.ncl.com/sites/default/files/1000x667-Bali-Indonesia-Cruise-Norwegian-couple.jpg"
-                                        alt="">
-                                    <div class="overlay">
+                                <a href="/destination/index.html?id=1">
+                                    <div class="top-destination-card">
+                                        <img src="https://www.ncl.com/sites/default/files/1000x667-Bali-Indonesia-Cruise-Norwegian-couple.jpg"
+                                            alt="">
+                                        <div class="overlay">
 
+                                        </div>
+                                        <p>Bali</p>
                                     </div>
-                                    <p>Bali</p>
-                                </div>
+                                </a>
                             </div>
                             <div class="swiper-slide">
-                                <div class="top-destination-card">
-                                    <img src="https://www.ncl.com/sites/default/files/1000x667-Bali-Indonesia-Cruise-Norwegian-couple.jpg"
-                                        alt="">
-                                    <div class="overlay">
+                                <a href="/destination/index.html?id=1">
+                                    <div class="top-destination-card">
+                                        <img src="https://www.ncl.com/sites/default/files/1000x667-Bali-Indonesia-Cruise-Norwegian-couple.jpg"
+                                            alt="">
+                                        <div class="overlay">
 
+                                        </div>
+                                        <p>Bali</p>
                                     </div>
-                                    <p>Bali</p>
-                                </div>
+                                </a>
                             </div>
                             <div class="swiper-slide">
-                                <div class="top-destination-card">
-                                    <img src="https://www.ncl.com/sites/default/files/1000x667-Bali-Indonesia-Cruise-Norwegian-couple.jpg"
-                                        alt="">
-                                    <div class="overlay">
+                                <a href="/destination/index.html?id=1">
+                                    <div class="top-destination-card">
+                                        <img src="https://www.ncl.com/sites/default/files/1000x667-Bali-Indonesia-Cruise-Norwegian-couple.jpg"
+                                            alt="">
+                                        <div class="overlay">
 
+                                        </div>
+                                        <p>Bali</p>
                                     </div>
-                                    <p>Bali</p>
-                                </div>
+                                </a>
                             </div>
                             <div class="swiper-slide">
-                                <div class="top-destination-card">
-                                    <img src="https://www.ncl.com/sites/default/files/1000x667-Bali-Indonesia-Cruise-Norwegian-couple.jpg"
-                                        alt="">
-                                    <div class="overlay">
+                                <a href="/destination/index.html?id=1">
+                                    <div class="top-destination-card">
+                                        <img src="https://www.ncl.com/sites/default/files/1000x667-Bali-Indonesia-Cruise-Norwegian-couple.jpg"
+                                            alt="">
+                                        <div class="overlay">
 
+                                        </div>
+                                        <p>Bali</p>
                                     </div>
-                                    <p>Bali</p>
-                                </div>
+                                </a>
                             </div>
                             <div class="swiper-slide">
-                                <div class="top-destination-card">
-                                    <img src="https://www.ncl.com/sites/default/files/1000x667-Bali-Indonesia-Cruise-Norwegian-couple.jpg"
-                                        alt="">
-                                    <div class="overlay">
+                                <a href="/destination/index.html?id=1">
+                                    <div class="top-destination-card">
+                                        <img src="https://www.ncl.com/sites/default/files/1000x667-Bali-Indonesia-Cruise-Norwegian-couple.jpg"
+                                            alt="">
+                                        <div class="overlay">
 
+                                        </div>
+                                        <p>Bali</p>
                                     </div>
-                                    <p>Bali</p>
-                                </div>
+                                </a>
                             </div>
+                            <div class="swiper-slide">
+                                <a href="/destination/index.html?id=1">
+                                    <div class="top-destination-card">
+                                        <img src="https://www.ncl.com/sites/default/files/1000x667-Bali-Indonesia-Cruise-Norwegian-couple.jpg"
+                                            alt="">
+                                        <div class="overlay">
+
+                                        </div>
+                                        <p>Bali</p>
+                                    </div>
+                                </a>
+                            </div>
+
 
                         </div>
-                        <div class="swiper-pagination"></div>
+                        <!-- <div class="swiper-pagination"></div> -->
+                        <!-- <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next">Next</div> -->
                     </div>
                     <div class="flex items-center justify-center"><button id="top-destination-btn"
                             class="btn-outline">See all destinations</button></div>
@@ -183,166 +220,174 @@
                 <div class="top-activities-container">
                     <h3 class="title">Popular activities</h3>
                     <div class="cards-div">
-                        <div class="activity-card">
-                            <img src="https://st3.depositphotos.com/4080643/16492/i/450/depositphotos_164926010-stock-photo-pura-ulun-danu-bratan-temple.jpg"
-                                alt="">
-                            <div class="activity-card-content">
-                                <div class="flex gap-3 items-start">
-                                    <p class="icon"><ion-icon name="location-outline"></ion-icon></p>
-                                    <p class="capitalized">European way, Southampton, United Kingdom</p>
-                                </div>
-                                <h3>Discover Singapore</h3>
-                                <div class="ratings-container">
-                                    <div class="ratings">
-                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
-                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
-                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
-                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
-                                        <p class="icon"><ion-icon name="star-half"></ion-icon></p>
+                        <a href="/destination/details.html?id=abc1">
+                            <div class="activity-card">
+                                <img src="https://st3.depositphotos.com/4080643/16492/i/450/depositphotos_164926010-stock-photo-pura-ulun-danu-bratan-temple.jpg"
+                                    alt="">
+                                <div class="activity-card-content">
+                                    <div class="flex gap-3 items-start">
+                                        <p class="icon"><ion-icon name="location-outline"></ion-icon></p>
+                                        <p class="capitalized">European way, Southampton, United Kingdom</p>
                                     </div>
-                                    <p class="">4.5 (50 reviews)</p>
-                                </div>
-
-                                <div class="flex gap-3 items-center">
-                                    <p class="way way-rail">Escorted Tour</p>
-                                    <p class="way way-cruise">Rail Tour</p>
-                                </div>
-
-                                <div class="divider"></div>
-
-                                <div class="flex gap-3 items-center justify-between">
-                                    <div class="">
-                                        <h4 class="line-through">$100</h4>
-                                        <h3><span>From </span>$92</h3>
+                                    <h3>Discover Singapore</h3>
+                                    <div class="ratings-container">
+                                        <div class="ratings">
+                                            <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                            <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                            <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                            <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                            <p class="icon"><ion-icon name="star-half"></ion-icon></p>
+                                        </div>
+                                        <p class="">4.5 (50 reviews)</p>
                                     </div>
 
                                     <div class="flex gap-3 items-center">
-                                        <p class="icon"><ion-icon name="time-outline"></ion-icon></p>
-                                        <p class="">5 days 4 nights</p>
+                                        <p class="way way-rail">Escorted Tour</p>
+                                        <p class="way way-cruise">Rail Tour</p>
+                                    </div>
+
+                                    <div class="divider"></div>
+
+                                    <div class="flex gap-3 items-center justify-between">
+                                        <div class="">
+                                            <h4 class="line-through">$100</h4>
+                                            <h3><span>From </span>$92</h3>
+                                        </div>
+
+                                        <div class="flex gap-3 items-center">
+                                            <p class="icon"><ion-icon name="time-outline"></ion-icon></p>
+                                            <p class="">5 days 4 nights</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="activity-card">
-                            <img src="https://st3.depositphotos.com/4080643/16492/i/450/depositphotos_164926010-stock-photo-pura-ulun-danu-bratan-temple.jpg"
-                                alt="">
-                            <div class="activity-card-content">
-                                <div class="flex gap-3 items-start">
-                                    <p class="icon"><ion-icon name="location-outline"></ion-icon></p>
-                                    <p class="capitalized">European way, Southampton, United Kingdom</p>
-                                </div>
-                                <h3>Discover Singapore</h3>
-                                <div class="ratings-container">
-                                    <div class="ratings">
-                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
-                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
-                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
-                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
-                                        <p class="icon"><ion-icon name="star-half"></ion-icon></p>
+                        </a>
+                        <a href="/destination/details.html?id=abc1">
+                            <div class="activity-card">
+                                <img src="https://st3.depositphotos.com/4080643/16492/i/450/depositphotos_164926010-stock-photo-pura-ulun-danu-bratan-temple.jpg"
+                                    alt="">
+                                <div class="activity-card-content">
+                                    <div class="flex gap-3 items-start">
+                                        <p class="icon"><ion-icon name="location-outline"></ion-icon></p>
+                                        <p class="capitalized">European way, Southampton, United Kingdom</p>
                                     </div>
-                                    <p class="">4.5 (50 reviews)</p>
-                                </div>
-
-                                <div class="flex gap-3 items-center">
-                                    <p class="way way-river">Escorted Tour</p>
-                                    <p class="way way-escorted">Rail Tour</p>
-                                </div>
-
-                                <div class="divider"></div>
-
-                                <div class="flex gap-3 items-center justify-between">
-                                    <div class="">
-                                        <h4 class="line-through">$100</h4>
-                                        <h3><span>From </span>$92</h3>
+                                    <h3>Discover Singapore</h3>
+                                    <div class="ratings-container">
+                                        <div class="ratings">
+                                            <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                            <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                            <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                            <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                            <p class="icon"><ion-icon name="star-half"></ion-icon></p>
+                                        </div>
+                                        <p class="">4.5 (50 reviews)</p>
                                     </div>
 
                                     <div class="flex gap-3 items-center">
-                                        <p class="icon"><ion-icon name="time-outline"></ion-icon></p>
-                                        <p class="">5 days 4 nights</p>
+                                        <p class="way way-river">Escorted Tour</p>
+                                        <p class="way way-escorted">Rail Tour</p>
+                                    </div>
+
+                                    <div class="divider"></div>
+
+                                    <div class="flex gap-3 items-center justify-between">
+                                        <div class="">
+                                            <h4 class="line-through">$100</h4>
+                                            <h3><span>From </span>$92</h3>
+                                        </div>
+
+                                        <div class="flex gap-3 items-center">
+                                            <p class="icon"><ion-icon name="time-outline"></ion-icon></p>
+                                            <p class="">5 days 4 nights</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="activity-card">
-                            <img src="https://st3.depositphotos.com/4080643/16492/i/450/depositphotos_164926010-stock-photo-pura-ulun-danu-bratan-temple.jpg"
-                                alt="">
-                            <div class="activity-card-content">
-                                <div class="flex gap-3 items-start">
-                                    <p class="icon"><ion-icon name="location-outline"></ion-icon></p>
-                                    <p class="capitalized">European way, Southampton, United Kingdom</p>
-                                </div>
-                                <h3>Discover Singapore</h3>
-                                <div class="ratings-container">
-                                    <div class="ratings">
-                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
-                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
-                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
-                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
-                                        <p class="icon"><ion-icon name="star-half"></ion-icon></p>
+                        </a>
+                        <a href="/destination/details.html?id=abc1">
+                            <div class="activity-card">
+                                <img src="https://st3.depositphotos.com/4080643/16492/i/450/depositphotos_164926010-stock-photo-pura-ulun-danu-bratan-temple.jpg"
+                                    alt="">
+                                <div class="activity-card-content">
+                                    <div class="flex gap-3 items-start">
+                                        <p class="icon"><ion-icon name="location-outline"></ion-icon></p>
+                                        <p class="capitalized">European way, Southampton, United Kingdom</p>
                                     </div>
-                                    <p class="">4.5 (50 reviews)</p>
-                                </div>
-
-                                <div class="flex gap-3 items-center">
-                                    <p class="way way-wild">Escorted Tour</p>
-                                    <p class="way way-cruise">Rail Tour</p>
-                                </div>
-
-                                <div class="divider"></div>
-
-                                <div class="flex gap-3 items-center justify-between">
-                                    <div class="">
-                                        <h4 class="line-through">$100</h4>
-                                        <h3><span>From </span>$92</h3>
+                                    <h3>Discover Singapore</h3>
+                                    <div class="ratings-container">
+                                        <div class="ratings">
+                                            <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                            <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                            <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                            <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                            <p class="icon"><ion-icon name="star-half"></ion-icon></p>
+                                        </div>
+                                        <p class="">4.5 (50 reviews)</p>
                                     </div>
 
                                     <div class="flex gap-3 items-center">
-                                        <p class="icon"><ion-icon name="time-outline"></ion-icon></p>
-                                        <p class="">5 days 4 nights</p>
+                                        <p class="way way-wild">Escorted Tour</p>
+                                        <p class="way way-cruise">Rail Tour</p>
+                                    </div>
+
+                                    <div class="divider"></div>
+
+                                    <div class="flex gap-3 items-center justify-between">
+                                        <div class="">
+                                            <h4 class="line-through">$100</h4>
+                                            <h3><span>From </span>$92</h3>
+                                        </div>
+
+                                        <div class="flex gap-3 items-center">
+                                            <p class="icon"><ion-icon name="time-outline"></ion-icon></p>
+                                            <p class="">5 days 4 nights</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="activity-card">
-                            <img src="https://st3.depositphotos.com/4080643/16492/i/450/depositphotos_164926010-stock-photo-pura-ulun-danu-bratan-temple.jpg"
-                                alt="">
-                            <div class="activity-card-content">
-                                <div class="flex gap-3 items-start">
-                                    <p class="icon"><ion-icon name="location-outline"></ion-icon></p>
-                                    <p class="capitalized">European way, Southampton, United Kingdom</p>
-                                </div>
-                                <h3>Discover Singapore</h3>
-                                <div class="ratings-container">
-                                    <div class="ratings">
-                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
-                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
-                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
-                                        <p class="icon"><ion-icon name="star"></ion-icon></p>
-                                        <p class="icon"><ion-icon name="star-half"></ion-icon></p>
+                        </a>
+                        <a href="/destination/details.html?id=abc1">
+                            <div class="activity-card">
+                                <img src="https://st3.depositphotos.com/4080643/16492/i/450/depositphotos_164926010-stock-photo-pura-ulun-danu-bratan-temple.jpg"
+                                    alt="">
+                                <div class="activity-card-content">
+                                    <div class="flex gap-3 items-start">
+                                        <p class="icon"><ion-icon name="location-outline"></ion-icon></p>
+                                        <p class="capitalized">European way, Southampton, United Kingdom</p>
                                     </div>
-                                    <p class="">4.5 (50 reviews)</p>
-                                </div>
-
-                                <div class="flex gap-3 items-center">
-                                    <p class="way way-wild">Escorted Tour</p>
-                                    <p class="way way-cruise">Rail Tour</p>
-                                </div>
-
-                                <div class="divider"></div>
-
-                                <div class="flex gap-3 items-center justify-between">
-                                    <div class="">
-                                        <h4 class="line-through">$100</h4>
-                                        <h3><span>From </span>$92</h3>
+                                    <h3>Discover Singapore</h3>
+                                    <div class="ratings-container">
+                                        <div class="ratings">
+                                            <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                            <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                            <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                            <p class="icon"><ion-icon name="star"></ion-icon></p>
+                                            <p class="icon"><ion-icon name="star-half"></ion-icon></p>
+                                        </div>
+                                        <p class="">4.5 (50 reviews)</p>
                                     </div>
 
                                     <div class="flex gap-3 items-center">
-                                        <p class="icon"><ion-icon name="time-outline"></ion-icon></p>
-                                        <p class="">5 days 4 nights</p>
+                                        <p class="way way-wild">Escorted Tour</p>
+                                        <p class="way way-cruise">Rail Tour</p>
+                                    </div>
+
+                                    <div class="divider"></div>
+
+                                    <div class="flex gap-3 items-center justify-between">
+                                        <div class="">
+                                            <h4 class="line-through">$100</h4>
+                                            <h3><span>From </span>$92</h3>
+                                        </div>
+
+                                        <div class="flex gap-3 items-center">
+                                            <p class="icon"><ion-icon name="time-outline"></ion-icon></p>
+                                            <p class="">5 days 4 nights</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
 
@@ -393,15 +438,25 @@
                     <h3>Bali</h3>
                 </div>
             </div>
+            <!-- home-contents -->
             <div class="home-contents">
                 <!-- home blog section-->
                 <div class="home-blog-container">
                     <div class="title-div">
                         <h3>Top destinations for your next vacation</h3>
-                        <div>L R</div>
+                        <div class="swiper-btns">
+                            <div class="relative">
+                                <div class="swiper-button-prev swiper-button-prev2"><ion-icon
+                                        name="arrow-back"></ion-icon></div>
+                            </div>
+                            <div class="relative">
+                                <div class="swiper-button-next swiper-button-next2"><ion-icon
+                                        name="arrow-forward"></ion-icon></div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="destinations-swipper swiper mySwiper">
+                    <div class="destinations-swipper swiper mySwiper2">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="home-blog-card">
@@ -466,7 +521,7 @@
 
 
                         </div>
-                        <div class="swiper-pagination"></div>
+                        <!-- <div class="swiper-pagination"></div> -->
                     </div>
                     <div class="flex items-center justify-center"><button id="top-destination-btn"
                             class="btn-outline">See all stories</button></div>
@@ -492,25 +547,20 @@
                 </div>
             </div>
             <div id="post" class="page hidden">This is a post page. Post ID: <span id="post-id"></span></div>
+
+
+            <!-- footer============================>-->
+            <footer id="footer"></footer>
         </div>
 
-        <script src="script.js"></script>
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <script>
-            var swiper = new Swiper(".mySwiper", {
-                slidesPerView: 4,
-                spaceBetween: 30,
-                freeMode: true,
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true,
-                },
-            });
-        </script>
 
+        <!-- javascript============================-->
+        <script type="module" src="/Script/main.js"></script>
+        <script type="module" src="/Script/home.js"></script>
+        <!-- <script src="script.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </body>
 
 </html>

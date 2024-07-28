@@ -1,0 +1,63 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "auth/*.html",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "destination/*.html",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "*.html",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "CSS/*",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "Script/sharedScript/*",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "Script/*",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "public/**/*",
+            "use": "@vercel/static"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/auth/(.*)",
+            "dest": "/auth/$1"
+        },
+        {
+            "src": "/destination/(.*)",
+            "dest": "/destination/$1"
+        },
+        {
+            "src": "/CSS/(.*)",
+            "dest": "/CSS/$1"
+        },
+        {
+            "src": "/Script/sharedScript/(.*)",
+            "dest": "/Script/sharedScript/$1"
+        },
+        {
+            "src": "/Script/(.*)",
+            "dest": "/Script/$1"
+        },
+        {
+            "src": "/public/(.*)",
+            "dest": "/public/$1"
+        },
+        {
+            "src": "/",
+            "dest": "/index.html"
+        }
+    ]
+}

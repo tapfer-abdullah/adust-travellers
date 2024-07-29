@@ -18,6 +18,17 @@
 
     <div class="page">
         <nav id="nav"></nav>
+        <aside id="shopping-cart" class="visible shopping-cart-container"></aside>
+        <!-- <aside id="shopping-cart" class="shopping-cart-container visible">
+            <div class="content">
+                <div class="cart-title-div">
+                    <h3>Shopping Cart</h3>
+                    <label for="shopping-icon">
+                        <img src="/public/assets/icon/cross.svg" alt="" class="">
+                    </label>
+                </div>
+            </div>
+        </aside> -->
 
         <div class="contents home-contents">
             <div class="header">
@@ -68,18 +79,40 @@
                     </div>
                 </div>
                 <div class="cart">
-                    <p>3 days 4 nights</p>
-                    <p>Price: $50.00 / person</p>
-                    <div class="ratings-container flex items-center gap-3 ">
-                        <div class="ratings flex items-center">
-                            <p class="icon"><ion-icon name="star"></ion-icon></p>
-                            <p class="icon"><ion-icon name="star"></ion-icon></p>
-                            <p class="icon"><ion-icon name="star"></ion-icon></p>
-                            <p class="icon"><ion-icon name="star"></ion-icon></p>
-                            <p class="icon"><ion-icon name="star-half"></ion-icon></p>
-                        </div>
+                    <div>
+                        <img src="/public/assets/icon/calender.svg" alt="" class="icon-image">
+                        <p>03-08-2024 to 06-08-2024</p>
+                    </div>
+                    <div>
+                        <img src="/public/assets/icon/duration.svg" alt="" class="icon-img">
+                        <p>3 days 4 nights</p>
+                    </div>
+                    <div class="">
+                        <img src="/public/assets/icon/star.svg" alt="" class="icon-img">
                         <p class="">4.5 (50 reviews)</p>
                     </div>
+                    <div class="price">
+                        <img src="/public/assets/icon/taka.svg" alt="" class="icon-img">
+                        <p><span>50.00</span> (1 person)</p>
+                    </div>
+                    <div class="divider"></div>
+
+                    <div>
+                        <div class="">
+                            <img src="/public/assets/icon/user-group.svg" alt="" class="icon-img">
+                            <p class="">Person:</p>
+                        </div>
+                        <div class="quantity">
+                            <button class="quantity-btn">
+                                <img src="/public/assets/icon/minus.svg" alt="" class="icon-img">
+                            </button>
+                            <input value="1" type="number" name="actual-quantity" id="actual-quantity" min="1">
+                            <button class="quantity-btn">
+                                <img src="/public/assets/icon/plus-2.svg" alt="" class="icon-img">
+                            </button>
+                        </div>
+                    </div>
+                    <button class="btn-add-cart">ADD TO CART</button>
                 </div>
             </div>
 

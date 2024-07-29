@@ -6,7 +6,7 @@ window.addEventListener("load", () => {
     // console.log({ pathname })
 
     let searchObj = {};
-    allSearchParams.forEach(s => {
+    allSearchParams?.forEach(s => {
         const arr = s.split("=");
         searchObj[`${arr[0]}`] = arr[1];
     })

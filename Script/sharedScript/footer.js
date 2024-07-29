@@ -1,6 +1,6 @@
 
 
-const footer = `<div class="contents home-contents">
+const footer = () => (`<div class="contents home-contents">
                 <div class="footer-col-1">
                     <h3 class="title">Don't just get there, get there in style.</h3>
                     <div class="flex gap-3 items-start">
@@ -49,7 +49,7 @@ const footer = `<div class="contents home-contents">
             <div class="divider home-contents"></div>
             <div class="copy-write home-contents">
                 Copyright ©️ 2024 | All Rights Reserved
-            </div>`
+            </div>`)
 
 
 export default footer;

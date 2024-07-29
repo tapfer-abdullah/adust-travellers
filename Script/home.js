@@ -55,3 +55,17 @@ flatpickr("#date-range", {
     // defaultDate: ["20-07-2024", "30-07-2024"] // Preloading range dates
     defaultDate: [getCurrentAndFutureDate(3).currentDate, getCurrentAndFutureDate(3).futureDate] // Preloading range dates
 });
+
+
+// document.getElementById('shopping-icon')?.addEventListener('change',
+// export function toggleShoppingCart() {
+
+//     console.log(this.checked, "kk", document.getElementById('shopping-icon'))
+//     if (this.checked) {
+//         console.log("yes")
+//         document.getElementById('shopping-cart').classList.add('block');
+//     } else {
+//         document.getElementById('shopping-cart').classList.remove('hidden');
+//         console.log("no")
+//     }
+// }

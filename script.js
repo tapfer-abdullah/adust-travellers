@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const allSearchParams = window.location.search.split("?")?.[1]?.split("&");
 
         let searchObj = {};
-        allSearchParams.forEach(s => {
+        allSearchParams?.forEach(s => {
             const arr = s.split("=");
             searchObj[`${arr[0]}`] = arr[1];
         })

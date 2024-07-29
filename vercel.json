@@ -2,6 +2,10 @@
     "version": 2,
     "builds": [
         {
+            "src": "/checkout/*.html",
+            "use": "@vercel/static"
+        },
+        {
             "src": "auth/*.html",
             "use": "@vercel/static"
         },
@@ -31,6 +35,10 @@
         }
     ],
     "routes": [
+        {
+            "src": "/checkout/",
+            "dest": "/checkout/index.html"
+        },
         {
             "src": "/auth/(.*)",
             "dest": "/auth/$1"

@@ -149,11 +149,10 @@
             }
         }
 
-        .quantity {
+        /* .quantity {
             display: flex;
 
             .quantity-btn {
-                /* background-color: rgba(0, 158, 207, 1); */
                 background-color: black;
                 color: white;
                 border: none;
@@ -181,7 +180,7 @@
                 padding-left: 15px;
                 outline: none;
             }
-        }
+        } */
 
         .btn-add-cart {
             /* border-radius: 5px; */

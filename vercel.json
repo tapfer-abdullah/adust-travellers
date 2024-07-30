@@ -34,7 +34,7 @@
             "use": "@vercel/static"
         },
         {
-            "src": "/Helper/(.*)",
+            "src": "Helper/*",
             "use": "@vercel/static"
         },
         {

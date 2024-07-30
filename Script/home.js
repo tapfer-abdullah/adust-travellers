@@ -1,3 +1,4 @@
+import { activities } from "./HomeContents/Activities.js";
 import { destinations } from "./HomeContents/Destinations.js";
 
 export const swiper1 = new Swiper(".mySwiper2", {
@@ -63,6 +64,7 @@ flatpickr("#date-range", {
 window.addEventListener('load', async () => {
     // id, url, select
     await destinations("destination-wrapper", "destination", "name0images");
+    await activities("top-activities-carts-container", "activity");
 
 
 });

@@ -1,6 +1,6 @@
 
-// const bashedURL = 'https://adust-travllers-backend.vercel.app/api/v1';
-const bashedURL = 'http://localhost:5000/api/v1';
+const bashedURL = 'https://adust-travllers-backend.vercel.app/api/v1';
+// const bashedURL = 'http://localhost:5000/api/v1';
 
 export const GetData = async (url, select) => {
     try {
@@ -49,4 +49,23 @@ export const GetDataByID = async (url, id) => {
         return null;
     }
 };
+
+export const GetDataByRef = async (url) => {
+    try {
+        const response = await fetch(`http://localhost:5000/api/v1/${url}`);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        // console.log({ data })
+        return data;
+
+
+
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        return null;
+    }
+}
 

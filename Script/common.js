@@ -8,3 +8,4 @@ const toast = (title) => {
         },
     }).showToast();
 }
+

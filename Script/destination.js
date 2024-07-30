@@ -1,3 +1,4 @@
+import { activityByID } from "./HomeContents/Activities.js";
 import { destinationByID } from "./HomeContents/Destinations.js";
 
 
@@ -14,20 +15,22 @@ window.addEventListener("load", async () => {
 
     //destination
     if (pathname == "/destination/index.html") {
-        // console.log({ title: "Destination page", id: searchObj?.id })
         await destinationByID("destination", searchObj?.id);
 
 
     }
     //details
     else if (pathname == "/destination/details.html") {
-        console.log({ title: "Details page", id: searchObj?.id })
+        // console.log({ title: "Details page", id: searchObj?.id })
 
-        document.getElementById('dest-name').innerText = searchObj?.id || "AK";
+        // document.getElementById('dest-name').innerText = searchObj?.id || "AK";
+        // activityByID
+
+        await activityByID("activity", searchObj?.id);
     }
 
 
-    console.log({ searchObj });
+    // console.log({ searchObj });
 })
 
 

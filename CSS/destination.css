@@ -87,10 +87,121 @@
         }
     }
 
-    .activities {
+    /* .activities {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: 15px;
+    } */
+
+    .title-div {
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 0;
+
+        h3 {
+            font-size: 30px;
+            text-transform: capitalize;
+        }
+    }
+
+    .activity-card {
+        width: 100%;
+        border: 1px solid gray;
+        border-radius: 12px;
+
+        img {
+            width: inherit;
+            height: 240px;
+            border-radius: inherit;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+            overflow: hidden;
+        }
+
+        .activity-card-content {
+            padding: 10px;
+
+            .line-through,
+            span {
+                color: grey;
+                font-size: 16px;
+                font-weight: 600;
+            }
+
+            .icon {
+                font-size: 20px;
+                font-weight: 600;
+
+                span {
+                    margin-top: -105px;
+                }
+            }
+
+            div:not(:last-child),
+            h3 {
+                margin-bottom: 10px;
+            }
+
+            div:last-child {
+                margin-bottom: -15px;
+            }
+
+            .ratings-container {
+                display: flex;
+                align-items: start;
+                gap: 10px;
+            }
+
+            .ratings-container>p {
+                color: rgb(52, 53, 55);
+                font-size: 16px;
+                font-weight: 600;
+            }
+
+            .ratings {
+                display: flex;
+                align-items: center;
+                gap: 3px;
+                margin-top: 1px;
+
+                ion-icon {
+                    color: rgb(251, 150, 17);
+                }
+            }
+
+            .way {
+                padding: 5px 12px;
+                border-radius: 8px;
+                font-weight: 600;
+            }
+
+            .way-escorted {
+                background-color: gainsboro;
+                color: rgb(52, 53, 55);
+            }
+
+            .way-wild {
+                background-color: rgb(8, 150, 115);
+                color: white;
+            }
+
+            .way-rail {
+                background-color: rgb(251, 150, 17);
+                color: white;
+            }
+
+            .way-cruise {
+                background-color: rgb(42, 193, 220);
+                color: white;
+            }
+
+            .way-river {
+                background-color: rgb(255, 207, 207);
+                color: rgb(142, 27, 27);
+            }
+        }
     }
 }
 

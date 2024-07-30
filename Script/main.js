@@ -18,13 +18,9 @@ window.addEventListener('load', () => {
 });
 
 export function toggleShoppingCart() {
-
-    console.log(this.checked, "kk", document.getElementById('shopping-icon'))
     if (this.checked) {
-        console.log("yes")
         document.getElementById('shopping-cart').classList.remove('visible');
     } else {
         document.getElementById('shopping-cart').classList.add('visible');
-        console.log("no")
     }
 }

@@ -1,6 +1,7 @@
+import { destinationByID } from "./HomeContents/Destinations.js";
 
 
-window.addEventListener("load", () => {
+window.addEventListener("load", async () => {
     const allSearchParams = window.location.search.split("?")?.[1]?.split("&");
     const pathname = window.location.pathname;
     // console.log({ pathname })
@@ -13,7 +14,8 @@ window.addEventListener("load", () => {
 
     //destination
     if (pathname == "/destination/index.html") {
-        console.log({ title: "Destination page", id: searchObj?.id })
+        // console.log({ title: "Destination page", id: searchObj?.id })
+        await destinationByID("destination", searchObj?.id);
 
 
     }
@@ -27,3 +29,5 @@ window.addEventListener("load", () => {
 
     console.log({ searchObj });
 })
+
+

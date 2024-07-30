@@ -1,3 +1,5 @@
+import { destinations } from "./HomeContents/Destinations.js";
+
 export const swiper1 = new Swiper(".mySwiper2", {
     slidesPerView: 4,
     spaceBetween: 30,
@@ -56,6 +58,14 @@ flatpickr("#date-range", {
     defaultDate: [getCurrentAndFutureDate(3).currentDate, getCurrentAndFutureDate(3).futureDate] // Preloading range dates
 });
 
+
+
+window.addEventListener('load', async () => {
+    // id, url, select
+    await destinations("destination-wrapper", "destination", "name0images");
+
+
+});
 
 // document.getElementById('shopping-icon')?.addEventListener('change',
 // export function toggleShoppingCart() {

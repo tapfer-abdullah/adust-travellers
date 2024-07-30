@@ -26,15 +26,19 @@
             "use": "@vercel/static"
         },
         {
+            "src": "Script/HomeContents/*",
+            "use": "@vercel/static"
+        },
+        {
             "src": "Script/*",
             "use": "@vercel/static"
         },
         {
-            "src": "public/**/*",
+            "src": "/Helper/(.*)",
             "use": "@vercel/static"
         },
         {
-            "src": "**/*.js",
+            "src": "public/**/*",
             "use": "@vercel/static"
         }
     ],
@@ -64,16 +68,16 @@
             "dest": "/Script/$1"
         },
         {
+            "src": "/Script/HomeContents/(.*)",
+            "dest": "/Script/HomeContents/$1"
+        },
+        {
+            "src": "/Helper/(.*)",
+            "dest": "/Helper/$1"
+        },
+        {
             "src": "/public/(.*)",
             "dest": "/public/$1"
-        },
-        {
-            "src": "(.*)",
-            "dest": "/$1"
-        },
-        {
-            "src": "**/(.*)",
-            "dest": "**/$1"
         },
         {
             "src": "/",

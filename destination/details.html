@@ -168,7 +168,7 @@
                     </div>
                 </div>
                 <div class="cart" id="activity-page-cart">
-                    <div>
+                    <!-- <div>
                         <img src="/public/assets/icon/calender.svg" alt="" class="icon-image">
                         <p>03-08-2024 to 06-08-2024</p>
                     </div>
@@ -192,16 +192,16 @@
                             <p class="">Person:</p>
                         </div>
                         <div class="quantity">
-                            <button class="quantity-btn quantity-btn-minus">
+                            <button class="quantity-btn quantity-btn-minus" id="quantity-btn quantity-btn-minus">
                                 <img src="/public/assets/icon/minus.svg" alt="" class="icon-img">
                             </button>
                             <input value="1" type="number" name="actual-quantity" id="actual-quantity" min="1">
-                            <button class="quantity-btn quantity-btn-plus">
+                            <button class="quantity-btn quantity-btn-plus" id="quantity-btn quantity-btn-plus">
                                 <img src="/public/assets/icon/plus-2.svg" alt="" class="icon-img">
                             </button>
                         </div>
                     </div>
-                    <button onclick="toast('Added to cart !')" class="btn-add-cart">ADD TO CART</button>
+                    <button onclick="toast('Added to cart !')" class="btn-add-cart">ADD TO CART</button> -->
                 </div>
             </div>
 
@@ -214,6 +214,7 @@
     <!-- javascript -->
     <script type="module" src="/Script/main.js"></script>
     <script src="/Script/common.js"></script>
+    <script src="/Script/Store/cart.js"></script>
     <script type="module" src="/Script/destination.js"></script>
     <!-- cdn  -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>

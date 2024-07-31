@@ -71,6 +71,13 @@ export const activityByID = async (url, pageID) => {
 
     const data = await GetDataByID(url, pageID);
 
+    // const cartData = { name: data?.data?.name, price: data?.data?.price, img: data?.data?.images?.[0] };
+    // console.log({ cartData })
+
+    // function addToCart(){
+    //     handleCart()
+    // }
+
     // const container = document.getElementById(id);
     const header = document.getElementById("activity-page-header");
     const images = document.getElementById("activity-page-images");
@@ -108,7 +115,7 @@ export const activityByID = async (url, pageID) => {
                     </div>
                     <div class="price">
                         <img src="/public/assets/icon/taka.svg" alt="" class="icon-img">
-                        <p><span>${(data?.data?.price)?.toFixed(2)}</span> (1 person)</p>
+                        <p><span>${(data?.data?.price)?.toFixed(1)}</span> (1 person)</p>
                     </div>
                     <div class="divider"></div>
 
@@ -118,15 +125,15 @@ export const activityByID = async (url, pageID) => {
                             <p class="">Person:</p>
                         </div>
                         <div class="quantity">
-                            <button class="quantity-btn quantity-btn-minus">
+                            <button onclick="decreaseQuantity()" class="quantity-btn quantity-btn-minus">
                                 <img src="/public/assets/icon/minus.svg" alt="" class="icon-img">
                             </button>
-                            <input value="1" type="number" name="actual-quantity" id="actual-quantity" min="1">
-                            <button class="quantity-btn quantity-btn-plus">
+                            <input value='1' type="number" name="actual-quantity" id="actual-quantity-field" min="1">
+                            <button onclick="increaseQuantity()" class="quantity-btn quantity-btn-plus" id="quantity-btn quantity-btn-plus">
                                 <img src="/public/assets/icon/plus-2.svg" alt="" class="icon-img">
                             </button>
                         </div>
                     </div>
-                    <button onclick="toast('Added to cart !')" class="btn-add-cart">ADD TO CART</button>
+                    <button onclick="addToCart('${data?.data?._id}', '${data?.data?.name}', '${data?.data?.price}', '${data?.data?.images?.[0]}')" class="btn-add-cart">ADD TO CART</button>
                 `
 }

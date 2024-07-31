@@ -33,13 +33,12 @@ export const GetData = async (url, select) => {
 
 export const GetDataByID = async (url, id) => {
     try {
-        const response = await fetch(`http://localhost:5000/api/v1/${url}/${id}`);
+        const response = await fetch(`${bashedURL}/${url}/${id}`);
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        // console.log({ data })
         return data;
 
 
@@ -52,13 +51,13 @@ export const GetDataByID = async (url, id) => {
 
 export const GetDataByRef = async (url) => {
     try {
-        const response = await fetch(`http://localhost:5000/api/v1/${url}`);
+        const response = await fetch(`${bashedURL}/${url}`);
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        // console.log({ data })
+        console.log({ data })
         return data;
 
 

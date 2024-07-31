@@ -56,6 +56,8 @@ export const destinationByID = async (url, pageID) => {
     }
 
     const data = await GetDataByID(url, pageID);
+    const sliderData = await GetDataByRef(`activity/ref/${pageID}`);
+    // console.log({ data, sliderData })
 
     // const container = document.getElementById(id);
     const header = document.getElementById("single-destination-header");
@@ -80,7 +82,7 @@ export const destinationByID = async (url, pageID) => {
     <p>${data?.data?.description}</p>`;
 
 
-    const sliderData = await GetDataByRef(`activity/ref/${pageID}`);
+    // const sliderData = await GetDataByRef(`activity/ref/${pageID}`);
 
     activitiesTitle.innerText = `Activities in ${data?.data?.name}`;
 

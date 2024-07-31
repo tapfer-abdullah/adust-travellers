@@ -210,6 +210,21 @@ footer {
     height: 100vh;
     /* padding: 15px; */
 
+    #empty-div {
+        img {
+            width: 250px;
+            /* height: 190px; */
+        }
+
+        p {
+            color: #FF0000;
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+            margin: 10px 0;
+        }
+    }
+
     .content {
         position: relative;
         background-color: white;
@@ -302,7 +317,7 @@ footer {
             bottom: 0px;
             right: 5px;
             margin-bottom: 10px;
-            width: inherit;
+            width: 95%;
 
             form {
                 display: flex;
@@ -407,7 +422,9 @@ footer {
         background-color: rgb(44, 42, 42);
     }
 
-    #actual-quantity {
+    #actual-quantity,
+    #actual-quantity-field,
+    .actual-quantity {
         width: 50px;
         height: 29px;
         text-align: center;

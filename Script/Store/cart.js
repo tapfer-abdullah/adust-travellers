@@ -54,6 +54,11 @@ function updatedNavCartQuantity() {
 
     }
     else {
+        // updating shopping-cart-subtotal
+        document.getElementById("shopping-cart-subtotal").innerText = 0.0;
+        // updating nav - quantity
+        document.getElementById("nav-quantity").innerText = 0;
+
         const cartContainer = document.getElementById("cartContainerAK");
         cartContainer.innerHTML = `<div class="single-cart">
                         <div id="empty-div">
@@ -188,8 +193,8 @@ function decreaseQuantityOfCart(id) {
 function deleteProductFromCart(id) {
     const existingCart = localStorage.getItem('ak-travelers-cart');
 
-    if (existingCart) {
-        const cart = JSON.parse(existingCart);
+    const cart = JSON.parse(existingCart);
+    if (cart?.length > 0) {
 
         const updatedCart = [];
 
@@ -200,8 +205,8 @@ function deleteProductFromCart(id) {
         })
 
         localStorage.setItem("ak-travelers-cart", JSON.stringify(updatedCart));
-        updatedNavCartQuantity();
     }
+    updatedNavCartQuantity();
 }
 
 // Function to decrease the quantity

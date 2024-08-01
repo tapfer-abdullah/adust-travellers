@@ -6,6 +6,10 @@
             "use": "@vercel/static"
         },
         {
+            "src": "/payment/*.html",
+            "use": "@vercel/static"
+        },
+        {
             "src": "auth/*.html",
             "use": "@vercel/static"
         },

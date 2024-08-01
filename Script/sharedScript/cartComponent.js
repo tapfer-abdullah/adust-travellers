@@ -51,7 +51,7 @@ const cartComponent = () => {
                         <h3>$<span id="shopping-cart-subtotal">${subTotal.toFixed(1)}</span></h3>
                     </div>
                     
-                    <a href="/checkout" class="cart-submit-btn">Checkout</a>
+                    <a href="/checkout/index.html" class="cart-submit-btn">Checkout</a>
                 </div>
             </div>`
     );

@@ -48,8 +48,12 @@
     ],
     "routes": [
         {
-            "src": "/checkout/",
-            "dest": "/checkout/index.html"
+            "src": "/payment/(.*)",
+            "dest": "/payment/$1"
+        },
+        {
+            "src": "/checkout/(.*)",
+            "dest": "/checkout/$1"
         },
         {
             "src": "/auth/(.*)",

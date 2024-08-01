@@ -24,7 +24,8 @@
         <div class="checkout-container home-contents">
             <div class="personal-info">
                 <h3>Personal info</h3>
-                <form>
+                <form id="make-payment-form">
+                    <!-- <form id="make-payment-form" onsubmit="handlePayment"> -->
                     <label for="name">Name:</label>
                     <input type="text" name="name" id="name" placeholder="Enter your name" required>
                     <label for="email">Email:</label>
@@ -34,7 +35,7 @@
                     <label for="address">Address:</label>
                     <input type="text" name="address" id="address" placeholder="Enter your address">
                     <label for="address">Address:</label>
-                    <select name="pick-up-location" id="pick-up-location">
+                    <select name="pickUpLocation" id="pickUpLocation">
                         <option value="select">Select..</option>
                         <option value="Abdullahpur">Abdullahpur</option>
                         <option value="Mohakhali">Mohakhali</option>
@@ -44,81 +45,13 @@
                     <input type="submit" value="Make Payment">
                 </form>
             </div>
+
+            <!-- order info  -->
             <div class="order-info">
                 <h3>Order info</h3>
 
                 <div class="content">
-                    <div class="cart-container">
-                        <div class="single-cart">
-                            <img class="single-cart-image"
-                                src="https://www.shutterstock.com/image-photo/beautiful-landscape-cloudy-sky-chimbuk-600nw-1824355007.jpg"
-                                alt="">
-                            <div class="single-cart-info">
-                                <h4>Nisgiri</h4>
-                                <p>$50.00</p>
-                                <div class="quantity">
-                                    <button class="quantity-btn quantity-btn-minus">
-                                        <img src="/public/assets/icon/minus.svg" alt="" class="icon-img">
-                                    </button>
-                                    <input value="1" type="number" name="actual-quantity" id="actual-quantity" min="1">
-                                    <button class="quantity-btn quantity-btn-plus">
-                                        <img src="/public/assets/icon/plus-2.svg" alt="" class="icon-img">
-                                    </button>
-                                </div>
-                            </div>
-
-                            <button class="remove-from-cart-btn">
-                                <img src="/public/assets/icon/cross-2.svg" alt="" class="">
-                            </button>
-
-                        </div>
-                        <div class="single-cart">
-                            <img class="single-cart-image"
-                                src="https://www.shutterstock.com/image-photo/beautiful-landscape-cloudy-sky-chimbuk-600nw-1824355007.jpg"
-                                alt="">
-                            <div class="single-cart-info">
-                                <h4>Nisgiri</h4>
-                                <p>$50.00</p>
-                                <div class="quantity">
-                                    <button class="quantity-btn quantity-btn-minus">
-                                        <img src="/public/assets/icon/minus.svg" alt="" class="icon-img">
-                                    </button>
-                                    <input value="1" type="number" name="actual-quantity" id="actual-quantity" min="1">
-                                    <button class="quantity-btn quantity-btn-plus">
-                                        <img src="/public/assets/icon/plus-2.svg" alt="" class="icon-img">
-                                    </button>
-                                </div>
-                            </div>
-
-                            <button class="remove-from-cart-btn">
-                                <img src="/public/assets/icon/cross-2.svg" alt="" class="">
-                            </button>
-
-                        </div>
-                        <div class="single-cart">
-                            <img class="single-cart-image"
-                                src="https://www.shutterstock.com/image-photo/beautiful-landscape-cloudy-sky-chimbuk-600nw-1824355007.jpg"
-                                alt="">
-                            <div class="single-cart-info">
-                                <h4>Nisgiri</h4>
-                                <p>$50.00</p>
-                                <div class="quantity">
-                                    <button class="quantity-btn quantity-btn-minus">
-                                        <img src="/public/assets/icon/minus.svg" alt="" class="icon-img">
-                                    </button>
-                                    <input value="1" type="number" name="actual-quantity" id="actual-quantity" min="1">
-                                    <button class="quantity-btn quantity-btn-plus">
-                                        <img src="/public/assets/icon/plus-2.svg" alt="" class="icon-img">
-                                    </button>
-                                </div>
-                            </div>
-
-                            <button class="remove-from-cart-btn">
-                                <img src="/public/assets/icon/cross-2.svg" alt="" class="">
-                            </button>
-
-                        </div>
-                    </div>
+                    <div class="cart-container" id="checkoutCartContainer"></div>
                     <div class="cart-footer">
                         <div class="divider"></div>
                         <p class="subtotal-label">Use discount code here:</p>
@@ -129,7 +62,7 @@
                         </form>
                         <div class="subtotal-div">
                             <p>Subtotal:</p>
-                            <h3>$150</h3>
+                            <h3>$<span id="checkout-page-subtotal">0.0</span></h3>
                         </div>
                         <div class="subtotal-div discount-div">
                             <p>Discount:</p>
@@ -149,7 +82,11 @@
         <footer id="footer"></footer>
     </div>
 
+    <!-- javascript -->
     <script type="module" src="/Script/main.js"></script>
+    <script src="/Script/common.js"></script>
+    <script src="/Script/checkout.js"></script>
+    <script src="/Script/Store/cart.js"></script>
     <script type="module" src="/Script/destination.js"></script>
 </body>
 

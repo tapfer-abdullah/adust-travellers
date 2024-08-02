@@ -94,6 +94,8 @@ export const activityByID = async (url, pageID) => {
     placeDesc.innerText = `${data?.data?.placeDescription}`;
     tourDesc.innerText = `${data?.data?.tourDescription}`;
 
+    const condition = data?.data?.totalSeats - data?.data?.booked === 0;
+
     cart.innerHTML = `<div>
                         <img src="/public/assets/icon/calender.svg" alt="" class="icon-image">
                         <p>${formateDate(data?.data?.startingDate)} to ${formateDate(data?.data?.endingDate)}</p>
@@ -102,9 +104,13 @@ export const activityByID = async (url, pageID) => {
                         <img src="/public/assets/icon/duration.svg" alt="" class="icon-img">
                         <p>${data?.data?.days} days ${data?.data?.nights} nights</p>
                     </div>
+                    <div>
+                        <img src="/public/assets/icon/seats.svg" alt="" class="icon-img">
+                        <p>${data?.data?.totalSeats - data?.data?.booked} seats available</p>
+                    </div>
                     <div class="">
                         <img src="/public/assets/icon/star.svg" alt="" class="icon-img">
-                        <p class="">${data?.data?.ratings} (50 ${data?.data?.totalReviews})</p>
+                        <p class="">${data?.data?.ratings} (${data?.data?.totalReviews} reviews)</p>
                     </div>
                     <div class="price">
                         <img src="/public/assets/icon/taka.svg" alt="" class="icon-img">
@@ -118,16 +124,16 @@ export const activityByID = async (url, pageID) => {
                             <p class="">Person:</p>
                         </div>
                         <div class="quantity">
-                            <button onclick="decreaseQuantity()" class="quantity-btn quantity-btn-minus">
+                            <button ${condition ? 'disabled' : ''} onclick="decreaseQuantity()" class="quantity-btn quantity-btn-minus ${(condition ? 'disabled' : '')}">
                                 <img src="/public/assets/icon/minus.svg" alt="" class="icon-img">
                             </button>
-                            <input value='1' type="number" name="actual-quantity" id="actual-quantity-field" min="1">
-                            <button onclick="increaseQuantity()" class="quantity-btn quantity-btn-plus" id="quantity-btn quantity-btn-plus">
+                            <input ${condition ? 'readOnly' : ''} class="${(condition ? 'disabled' : '')}" value='1' type="number" name="actual-quantity" id="actual-quantity-field" min="1">
+                            <button ${condition ? 'disabled' : ''} onclick="increaseQuantity()" class="quantity-btn quantity-btn-plus ${(condition ? 'disabled' : '')}" id="quantity-btn quantity-btn-plus">
                                 <img src="/public/assets/icon/plus-2.svg" alt="" class="icon-img">
                             </button>
                         </div>
                     </div>
-                    <button onclick="addToCart('${data?.data?._id}', '${data?.data?.name}', '${data?.data?.price}', '${data?.data?.images?.[0]}')" class="btn-add-cart">ADD TO CART</button>
+                    <button ${condition ? 'disabled' : ''} onclick="addToCart('${data?.data?._id}', '${data?.data?.name}', '${data?.data?.price}', '${data?.data?.images?.[0]}')" class="btn-add-cart ${(condition ? 'disabled' : '')}">ADD TO CART</button>
                 `
 }
 

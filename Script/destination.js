@@ -31,6 +31,7 @@ window.addEventListener("load", async () => {
 
         if (status) {
             localStorage.removeItem('ak-travelers-cart');
+            localStorage.removeItem('ak-traveler-dis');
         }
 
         document.getElementById("order-personal-info").innerHTML = `
@@ -88,7 +89,8 @@ window.addEventListener("load", async () => {
             orderedDiv.appendChild(sp)
         });
 
-        const discount = discountCode ? `( ${discountCode} )` : "";
+        const discount = discountCode ? `<img src="/public/assets/icon/tag.svg" alt="" class="icon">
+                                    <p id="discountCode-p">(${discountCode})</p>` : "";
 
         const amountTable = document.getElementById("amount-table");
         amountTable.innerHTML = `<tr>
@@ -98,7 +100,7 @@ window.addEventListener("load", async () => {
                     </tr>
                     <tr>
                         <td class="bold">Discount:</td>
-                        <td>${discount}</td>
+                        <td class="discount-icon-div">${discount}</td>
                         <td class="end">- $${discountedAmount || 0.0}</td>
                     </tr>
                     <tr class="total-tr">

@@ -34,7 +34,7 @@
                     <input type="text" name="phone" id="phone" placeholder="Enter your number" required>
                     <label for="address">Address:</label>
                     <input type="text" name="address" id="address" placeholder="Enter your address">
-                    <label for="address">Address:</label>
+                    <label for="address">Pickup location:</label>
                     <select name="pickUpLocation" id="pickUpLocation">
                         <option value="select">Select..</option>
                         <option value="Abdullahpur">Abdullahpur</option>
@@ -55,22 +55,29 @@
                     <div class="cart-footer">
                         <div class="divider"></div>
                         <p class="subtotal-label">Use discount code here:</p>
-                        <form>
-                            <input type="text" name="cart-discount" id="cart-discount-field"
+                        <form id="discount-code-form">
+                            <input required type="text" name="cartDiscount" id="cart-discount-field"
                                 placeholder="Enter discount code">
                             <input type="submit" value="Apply" />
                         </form>
+                        <div class="subtotal-div">
+                            <p id="discount-invalid" class="danger"></p>
+                        </div>
                         <div class="subtotal-div">
                             <p>Subtotal:</p>
                             <h3>$<span id="checkout-page-subtotal">0.0</span></h3>
                         </div>
                         <div class="subtotal-div discount-div">
-                            <p>Discount:</p>
-                            <h3>- $50</h3>
+                            <div class="discount-icon">
+                                <p>Discount:</p>
+                                <div id="discountCode-div">
+                                </div>
+                            </div>
+                            <h3><span id="checkout-page-discount">$ 0.0</span></h3>
                         </div>
                         <div class="subtotal-div total-div">
                             <p>Total:</p>
-                            <h3>$100</h3>
+                            <h3>$<span id="checkout-page-total">0.0</span></h3>
                         </div>
 
                     </div>

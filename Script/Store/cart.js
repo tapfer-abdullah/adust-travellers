@@ -1,6 +1,8 @@
 
 function updatedNavCartQuantity() {
     const existingCart = localStorage.getItem('ak-travelers-cart');
+    const existingDiscountCode = localStorage.getItem('ak-traveler-dis');
+
     const cart = JSON.parse(existingCart);
     if (cart?.length > 0) {
         quantity = cart?.reduce((accumulator, currentValue) => {
@@ -14,9 +16,52 @@ function updatedNavCartQuantity() {
 
         // updating shopping-cart-subtotal
         document.getElementById("shopping-cart-subtotal").innerText = subTotal.toFixed(1) || 0;
+
         const checkoutPageSubtotal = document.getElementById("checkout-page-subtotal");
-        if (checkoutPageSubtotal)
-            document.getElementById("checkout-page-subtotal").innerText = subTotal.toFixed(1) || 0;
+        const checkoutPageTotal = document.getElementById("checkout-page-total");
+
+        const checkoutPageDiscount = document.getElementById("checkout-page-discount");
+        const checkoutPageDiscountD = document.getElementById("discountCode-div");
+
+        if (checkoutPageSubtotal) {
+            const subTotal = cart?.reduce((accumulator, currentValue) => {
+                return accumulator + (currentValue?.person * currentValue?.price);
+            }, 0);
+
+
+            if (existingDiscountCode) {
+                const disArray = existingDiscountCode?.split('$');
+                const discountCode = disArray?.[0];
+
+                checkoutPageSubtotal.innerText = subTotal.toFixed(1) || 0.0;
+
+
+                if (disArray?.[1] == 'p') {
+                    const reducedMoney = subTotal * (parseFloat(disArray?.[2]) / 100);
+
+                    checkoutPageTotal.innerText = (subTotal - reducedMoney).toFixed(1) || 0.0;
+                    checkoutPageDiscount.innerText = `- $ ${reducedMoney.toFixed(1) || 0.0}`;
+                    checkoutPageDiscountD.innerHTML = `<img src="/public/assets/icon/tag.svg" alt="" class="icon">
+                                    <p id="discountCode-p">${discountCode}</p>`;
+
+                }
+                else if (disArray?.[1] == 'f') {
+                    const reducedMoney = parseFloat(disArray?.[2]);
+
+                    checkoutPageTotal.innerText = (subTotal - reducedMoney).toFixed(1) || 0.0;
+                    checkoutPageDiscount.innerText = `- $ ${reducedMoney.toFixed(1) || 0.0}`;
+                    checkoutPageDiscountD.innerHTML = `<img src="/public/assets/icon/tag.svg" alt="" class="icon">
+                                    <p id="discountCode-p">${discountCode}</p>`;
+                }
+            }
+            else {
+                checkoutPageSubtotal.innerText = subTotal.toFixed(1) || 0.0;
+                checkoutPageTotal.innerText = subTotal.toFixed(1) || 0.0;
+            }
+        }
+
+
+
         // updating nav - quantity
         document.getElementById("nav-quantity").innerText = quantity || 0;
 

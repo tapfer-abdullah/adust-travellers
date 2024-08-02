@@ -188,15 +188,6 @@ footer {
     }
 }
 
-/* .page>.shopping-cart-div>input[type="checkbox"]:checked+#shopping-cart {
-    display: none;
-} */
-
-/* .shopping-cart-div input[type="checkbox"]+.shopping-cart {
-    display: block;
-} */
-
-
 
 /* shopping-cart */
 .shopping-cart-container {
@@ -481,6 +472,10 @@ footer {
 
 
 /*------------------------------common css----------------------------*/
+.disabled {
+    cursor: not-allowed !important;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -629,6 +624,10 @@ a {
 
 .hidden {
     display: none;
+}
+
+.danger {
+    color: #FF0000;
 }
 
 /* .block {

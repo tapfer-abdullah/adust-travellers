@@ -5,11 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment success</title>
+    <link rel="stylesheet" href="/CSS/payment.css">
 </head>
 
 <body>
-    <h3>Payment successful</h3>
-    <a href="/">Back to home</a>
+    <div id="order-success-container">
+        <div class="content">
+            <div class="personal-info" id="order-personal-info">
+            </div>
+            <div class="cart-info">
+                <h2>Order Summary</h2>
+                <div class="divider"></div>
+                <div class="carts" id="ordered-destinations">
+
+                </div>
+                <div class="divider"></div>
+
+                <table id="amount-table">
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- javascript -->
+    <script type="module" src="/Script/destination.js"></script>
 </body>
 
 </html>

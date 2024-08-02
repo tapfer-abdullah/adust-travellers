@@ -5,11 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment failed</title>
+    <link rel="stylesheet" href="/CSS/payment.css">
 </head>
 
 <body>
-    <h3>Payment Failed</h3>
-    <a href="/">Back to home</a>
+    <div id="order-success-container">
+
+        <div class="failed">
+            <img src="/public/assets/icon/warning.svg" alt="warning">
+            <h3>Payment failed</h3>
+            <div class="btn-container">
+                <a class="btn-outline" href="/index.html">Back To Home</a>
+                <a class="btn-outline" href="/checkout/index.html">Complete The Order</a>
+            </div>`
+        </div>
+    </div>
+
+
+
+    <!-- javascript -->
+    <script type="module" src="/Script/destination.js"></script>
 </body>
 
 </html>

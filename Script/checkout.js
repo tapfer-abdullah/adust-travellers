@@ -27,9 +27,6 @@ form.addEventListener("submit", async function (event) {
     cart?.forEach(sp => updatedCart.push({ id: sp?.id, person: sp?.person }))
 
 
-    console.log({ data, updatedCart, discountCode });
-
-
     const jsonData = JSON.stringify({ ...data, cart: updatedCart, discountCode });
 
     console.log({ jsonData })
@@ -51,13 +48,13 @@ form.addEventListener("submit", async function (event) {
 
         // Parse the JSON response from the server
         const result = await response.json();
-        console.log('Success:', result);
+
+        if (result?.status == false) {
+            return alert(result?.message)
+        }
 
         window.location.assign(result?.url);
 
-
-        // Handle successful response (e.g., display a message, redirect, etc.)
-        // alert('Form submitted successfully!');
 
     } catch (error) {
         // Handle errors (e.g., network issues, server errors, etc.)
@@ -67,3 +64,5 @@ form.addEventListener("submit", async function (event) {
 
 
 });
+
+

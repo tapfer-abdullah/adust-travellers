@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
+}
+
+:root {
+    --primary-bg: #0ce3c3;
+    --primary-color: #ffff;
+    ---primary-color-hover: #f712c5;
+    ---rating-color: rgb(251, 150, 17);
+}
+
+
+
+body {
+    height: 100%;
+    position: relative;
+
+    background-image: url("https://www.thetopvillas.com/blog/wp-content/uploads/2021/07/Florida-beaches.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#order-success-container {
+    max-width: 800px;
+    height: fit-content;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+
+    .bold {
+        font-weight: 700;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    h2,
+    h3 {
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+
+
+    .personal-info {
+        /* padding: 30px; */
+        position: relative;
+
+        table {
+            width: inherit;
+            margin: 15px 0;
+
+            td {
+                padding: 5px 15px 5px 0;
+            }
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 10px;
+
+            a {
+                display: block;
+                text-decoration: none;
+
+            }
+        }
+
+    }
+
+    .cart-info {
+        position: relative;
+
+        .carts {
+            margin-top: 20px;
+
+            .single-cart {
+                margin-bottom: 10px;
+                width: 100%;
+                display: flex;
+                gap: 10px;
+                align-items: start;
+
+                img {
+                    width: 80px;
+                    border-radius: 5px;
+                }
+
+                .single-cart-info {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+
+                    div {
+                        h4 {
+                            font-size: 18px;
+                            margin-bottom: 5px;
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+
+
+        table {
+            width: 100%;
+
+            td {
+                padding: 5px 8px 5px 0;
+            }
+
+            .end {
+                text-align: end;
+            }
+
+            .total-tr {
+                font-size: 20px;
+            }
+        }
+    }
+
+}
+
+
+.failed {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        max-width: 150px;
+        margin: 0 auto;
+    }
+
+    h3 {
+        font-size: 25px;
+        color: #fc2f2f;
+        margin: 10px auto;
+    }
+
+    .btn-container {
+        margin-top: 20px;
+
+        a {
+            text-decoration: none;
+        }
+    }
+}
+
+/* common css  */
+.divider {
+    width: 100%;
+    border-top: 1px solid rgb(174, 170, 170);
+    margin-top: 15px;
+}
+
+.btn-outline {
+    border: 1px solid var(--primary-bg);
+    background-color: white;
+    padding: 5px 15px;
+    border-radius: 40px;
+    text-transform: capitalize;
+    font-size: medium;
+    font-weight: 600;
+    color: var(--primary-bg);
+    cursor: pointer;
+    width: fit-content;
+    transition: all 0.5s;
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-bg);
+    color: white;
+}
+
+.btn-solid {
+    border: 1px solid white;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 40px;
+    text-transform: capitalize;
+    font-size: medium;
+    font-weight: 600;
+    color: var(--primary-bg);
+    cursor: pointer;
+    transition: all 0.5s;
+    width: fit-content;
+}
+
+.btn-solid:hover {
+    border: 1px solid var(--primary-bg);
+    background-color: var(--primary-bg);
+    color: white;
+}

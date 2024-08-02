@@ -71,13 +71,6 @@ export const activityByID = async (url, pageID) => {
 
     const data = await GetDataByID(url, pageID);
 
-    // const cartData = { name: data?.data?.name, price: data?.data?.price, img: data?.data?.images?.[0] };
-    // console.log({ cartData })
-
-    // function addToCart(){
-    //     handleCart()
-    // }
-
     // const container = document.getElementById(id);
     const header = document.getElementById("activity-page-header");
     const images = document.getElementById("activity-page-images");
@@ -137,3 +130,4 @@ export const activityByID = async (url, pageID) => {
                     <button onclick="addToCart('${data?.data?._id}', '${data?.data?.name}', '${data?.data?.price}', '${data?.data?.images?.[0]}')" class="btn-add-cart">ADD TO CART</button>
                 `
 }
+

@@ -4,6 +4,12 @@ function updatedNavCartQuantity() {
     const existingDiscountCode = localStorage.getItem('ak-traveler-dis');
 
     const cart = JSON.parse(existingCart);
+
+    // updating cart btn 
+    const condition = cart?.length > 0;
+    document.getElementById("cart-btn").innerHTML = `<a id="cart-btn" href="${condition ? '/checkout/index.html' : '#'}" class="cart-submit-btn ${condition ? '' : 'unavailable disabled'}">${condition ? "Checkout" : "Cart is empty"}</a>
+`
+
     if (cart?.length > 0) {
         quantity = cart?.reduce((accumulator, currentValue) => {
             return accumulator + currentValue?.person;
@@ -323,7 +329,7 @@ function addToCart(id, name, price, img) {
 
     Toastify({
         text: `Added to cart!   `,
-        duration: 3000,
+        duration: 1200,
         close: true,
         style: {
             background: "linear-gradient(to right, #00b09b, #96c93d)",

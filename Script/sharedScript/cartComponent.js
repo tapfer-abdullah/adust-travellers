@@ -52,8 +52,10 @@ const cartComponent = () => {
                         <h3>$<span id="shopping-cart-subtotal">${subTotal.toFixed(1)}</span></h3>
                     </div>
                     
-                    <a href="${condition ? '/checkout/index.html' : '#'}" class="cart-submit-btn ${condition ? '' : 'unavailable disabled'}">${condition ? "Checkout" : "Cart is empty"}</a>
-                </div>
+                    <div id="cart-btn">
+                     <a href="${condition ? '/checkout/index.html' : '#'}" class="cart-submit-btn ${condition ? '' : 'unavailable disabled'}">${condition ? "Checkout" : "Cart is empty"}</a>
+                    </div>
+                    </div>
             </div>`
     );
 };

@@ -11,6 +11,13 @@
     <!-- other links  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+
+    <!-- seam select  -->
+    <script src="https://unpkg.com/slim-select@latest/dist/slimselect.min.js"></script>
+    <link href="https://unpkg.com/slim-select@latest/dist/slimselect.css" rel="stylesheet">
+    </link>
+
 </head>
 
 <body>
@@ -21,15 +28,6 @@
     <!-- navbar======================================>-->
     <nav id="nav"></nav>
     <aside id="shopping-cart" class="visible shopping-cart-container">
-        <!-- <aside id="shoppint-cart" class="hidden"> -->
-        <!-- <div class="content">
-            <div class="cart-title-div">
-                <h3>Shopping Cart</h3>
-                <label for="shopping-icon">
-                    <img src="/public/assets/icon/cross.svg" alt="" class="">
-                </label>
-            </div>
-        </div> -->
     </aside>
     <!-- single page container============================>-->
     <div id="app">
@@ -46,8 +44,18 @@
                                     <p class="icon"><ion-icon name="location-outline"></ion-icon></p>
                                     <div>
                                         <label for="search-title">Where to?</label> <br>
-                                        <input type="text" name="search-title" id="search-title"
-                                            placeholder="Search a place or activity">
+                                        <!-- <input type="text" name="search-title" id="search-title"
+                                            placeholder="Search a place or activity"> -->
+                                        <select class="where-selector" id="selectElement">
+                                            <!-- <option disabled selected>Search place</option> -->
+                                            <option data-placeholder="true"></option>
+                                            <option>Option 1</option>
+                                            <option>Option 2</option>
+                                            <option>lorem10</option>
+                                            <option>land</option>
+                                            <option>Cox</option>
+                                            <option>Ck</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-3">
@@ -64,9 +72,12 @@
 
                                 </div>
 
-                                <div class="icon search-icon"><ion-icon name="search-outline"></ion-icon>
+                                <div id="handleSearch" class="icon search-icon cursor-pointer"><ion-icon
+                                        name="search-outline"></ion-icon>
                                 </div>
                             </form>
+
+
                         </div>
                     </div>
                 </div>
@@ -117,8 +128,10 @@
                     <div class="destinations-swipper swiper mySwiper1">
                         <div class="swiper-wrapper" id="destination-wrapper"></div>
                     </div>
-                    <div class="flex items-center justify-center"><button id="top-destination-btn"
-                            class="btn-outline">See all destinations</button></div>
+                    <div class="flex items-center justify-center">
+                        <a href="/destination/all.html" id="top-destination-btn" class="btn-outline">See all
+                            destinations</a>
+                    </div>
                 </div>
 
                 <!-- inspired section -->
@@ -335,27 +348,6 @@
                             class="btn-outline">See all stories</button></div>
                 </div>
             </div>
-
-
-            <!-- pages ********************************************************************** -->
-            <div id="posts" class="page hidden">
-                <h3>All Posts</h3>
-
-                <div class="all-posts" id="all-posts">
-                    <!-- <div class="single-post">
-                    <img src="/public/assets/menu/soup-bg.jpg" alt="">
-                    <div>
-                        <div>
-                            <p>Price: $50</p>
-                            <p>Ratings: *****</p>
-                        </div>
-                        <a href="/?post=1" onclick="navigate">View Details</a>
-                    </div>
-                </div> -->
-                </div>
-            </div>
-            <div id="post" class="page hidden">This is a post page. Post ID: <span id="post-id"></span></div>
-
 
             <!-- footer============================>-->
             <footer id="footer"></footer>

@@ -4,7 +4,8 @@ const cartComponent = () => {
     const existingCart = localStorage.getItem('ak-travelers-cart');
     let subTotal = 0;
     const cart = JSON.parse(existingCart);
-    if (cart?.length > 0) {
+    const condition = cart?.length > 0;
+    if (condition) {
         subTotal = cart?.reduce((accumulator, currentValue) => {
             return accumulator + (currentValue?.person * currentValue?.price);
         }, 0);
@@ -51,7 +52,7 @@ const cartComponent = () => {
                         <h3>$<span id="shopping-cart-subtotal">${subTotal.toFixed(1)}</span></h3>
                     </div>
                     
-                    <a href="/checkout/index.html" class="cart-submit-btn">Checkout</a>
+                    <a href="${condition ? '/checkout/index.html' : '#'}" class="cart-submit-btn ${condition ? '' : 'unavailable disabled'}">${condition ? "Checkout" : "Cart is empty"}</a>
                 </div>
             </div>`
     );

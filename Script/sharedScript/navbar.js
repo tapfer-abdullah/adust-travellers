@@ -13,7 +13,8 @@ export const navbar = () => {
 </div>
 <div class="content-2">
     <a href="/" id="home-link">Home</a>
-    <a href="/destination" id="destinations-link">Destinations</a>
+    <a href="/destination/all.html" id="destinations-link">Destinations</a>
+    <a href="/destination/search.html?query=all" id="destinations-link">Activities</a>
     <a href="/?post=all" id="posts-link">Posts</a>
 </div>
 <div class="content-3 shopping-cart-div">

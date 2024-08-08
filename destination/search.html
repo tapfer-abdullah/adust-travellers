@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations</title>
+    <!-- css  -->
+    <link rel="stylesheet" href="/CSS/main.css">
+    <link rel="stylesheet" href="/CSS/destination.css">
+    <link rel="stylesheet" href="/CSS/home.css">
+    <link rel="stylesheet" href="/CSS/search.css">
+
+    <!-- other links  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+
+    <!-- seam select  -->
+    <script src="https://unpkg.com/slim-select@latest/dist/slimselect.min.js"></script>
+    <link href="https://unpkg.com/slim-select@latest/dist/slimselect.css" rel="stylesheet">
+    </link>
+</head>
+
+<body>
+    <!-- icons  -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <div class="page">
+        <nav id="nav"></nav>
+        <aside id="shopping-cart" class="visible shopping-cart-container"></aside>
+
+        <div class="search-main-content">
+            <!-- banner  -->
+            <div class="banner">
+                <div class="overlay">
+                    <div class="banner-contents" id="search-banner">
+                        <h1>All Activities</h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- other contents  -->
+            <div class="w-1200px">
+                <div class="activities-container">
+                    <div id="filter-card">
+                        <h3 class="title">Filter Activities</h3>
+                        <form>
+                            <div class="flex items-center gap-3">
+                                <p class="icon"><ion-icon name="location-outline"></ion-icon></p>
+                                <div>
+                                    <label for="search-title">Where to?</label> <br>
+                                    <select class="where-selector" id="selectElement">
+                                        <!-- <option disabled selected>Search place</option> -->
+                                        <option data-placeholder="true"></option>
+                                        <option>Option 1</option>
+                                        <option>Option 2</option>
+                                        <option>lorem10</option>
+                                        <option>land</option>
+                                        <option>Cox</option>
+                                        <option>Ck</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <p class="icon"><ion-icon name="calendar-clear-outline"></ion-icon></p>
+                                <div>
+                                    <label for="search-date-from">When?</label> <br>
+                                    <input type="text" id="date-range" placeholder="Select Date Range">
+                                </div>
+
+                            </div>
+
+                            <div id="handleSearch" class="btn icon search-icon cursor-pointer">
+                                <ion-icon name="search-outline"></ion-icon>
+                                <p>Filter activities</p>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="not-found">
+                    </div>
+
+                    <div id="search-activities-container">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- footer============================>-->
+        <footer id="footer"></footer>
+    </div>
+
+
+    <!-- javascript -->
+    <script type="module" src="/Script/main.js"></script>
+    <script src="/Script/common.js"></script>
+    <script src="/Script/Store/cart.js"></script>
+    <script type="module" src="/Script/destination.js"></script>
+    <script type="module" src="/Script/search.js"></script>
+
+    <!-- <script src="script.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</body>
+
+</html>

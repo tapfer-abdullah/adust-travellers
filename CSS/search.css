@@ -1,0 +1,248 @@
+.search-main-content {
+    position: relative;
+
+    .banner {
+        position: relative;
+        min-height: 250px;
+        color: white;
+        background-image: url("https://media-cdn.tripadvisor.com/media/photo-c/1280x250/11/1e/4a/33/pangthumai-waterfall.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        .banner-contents {
+            position: absolute;
+            z-index: 3;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            text-align: center;
+        }
+
+
+    }
+
+    .activities-container {
+        margin: 50px auto;
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        gap: 20px;
+
+
+        #search-activities-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+
+            .activity-card {
+                width: 100%;
+                border: 1px solid gray;
+                border-radius: 12px;
+
+                img {
+                    width: inherit;
+                    height: 240px;
+                    border-radius: inherit;
+                    border-bottom-right-radius: 0;
+                    border-bottom-left-radius: 0;
+                    overflow: hidden;
+                }
+
+                .activity-card-content {
+                    padding: 10px;
+
+                    .line-through,
+                    span {
+                        color: grey;
+                        font-size: 16px;
+                        font-weight: 600;
+                    }
+
+                    .icon {
+                        font-size: 20px;
+                        font-weight: 600;
+
+                        span {
+                            margin-top: -105px;
+                        }
+                    }
+
+                    div:not(:last-child),
+                    h3 {
+                        margin-bottom: 10px;
+                    }
+
+                    div:last-child {
+                        margin-bottom: -15px;
+                    }
+
+                    .ratings-container {
+                        display: flex;
+                        align-items: start;
+                        gap: 10px;
+                    }
+
+                    .ratings-container>p {
+                        color: rgb(52, 53, 55);
+                        font-size: 16px;
+                        font-weight: 600;
+                    }
+
+                    .ratings {
+                        display: flex;
+                        align-items: center;
+                        gap: 3px;
+                        margin-top: 1px;
+
+                        ion-icon {
+                            color: rgb(251, 150, 17);
+                        }
+                    }
+
+                    .way {
+                        padding: 5px 12px;
+                        border-radius: 8px;
+                        font-weight: 600;
+                    }
+
+                    .way-escorted {
+                        background-color: gainsboro;
+                        color: rgb(52, 53, 55);
+                    }
+
+                    .way-wild {
+                        background-color: rgb(8, 150, 115);
+                        color: white;
+                    }
+
+                    .way-rail {
+                        background-color: rgb(251, 150, 17);
+                        color: white;
+                    }
+
+                    .way-cruise {
+                        background-color: rgb(42, 193, 220);
+                        color: white;
+                    }
+
+                    .way-river {
+                        background-color: rgb(255, 207, 207);
+                        color: rgb(142, 27, 27);
+                    }
+                }
+            }
+        }
+
+        #filter-card {
+            background-color: rgba(206, 201, 201, 0.438);
+            padding: 15px;
+            border-radius: 12px;
+            height: fit-content;
+
+            .title {
+                text-align: center;
+            }
+
+            form {
+                width: 100%;
+
+                ion-icon {
+                    font-size: 35px !important;
+                }
+
+
+                input,
+                select {
+                    width: 100% !important;
+                    padding: 5px;
+                    outline: none;
+                    border: 1px solid rgb(205, 201, 201);
+                    border-radius: 5px;
+
+                }
+
+                input,
+                .where-selector {
+                    margin: 5px 0;
+                }
+
+                .btn {
+                    background: radial-gradient(circle, rgba(0, 158, 207, 1) 0%, rgba(12, 242, 255, 1) 100%);
+                    color: white;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    justify-content: center;
+                    font-size: 18px;
+                    font-weight: 700;
+
+                    ion-icon {
+                        color: white;
+                    }
+                }
+            }
+
+            form>div {
+                /* width: 100%; */
+                background-color: white;
+                margin: 10px 0;
+                padding: 10px;
+                border-radius: 10px;
+
+
+            }
+        }
+
+        #not-found {
+            width: fit-content;
+            margin: 0 auto;
+            text-align: center;
+
+            img {
+                width: 150px;
+                margin: 0 auto;
+            }
+
+            p {
+                margin: 5px 0;
+                font-size: 18px;
+                font-weight: 700;
+                color: gray;
+            }
+        }
+    }
+}
+
+
+
+/* all destinations  */
+#all-destinations-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    margin: 50px auto;
+}
+
+.top-destination-card {
+    position: relative;
+    /* width: 320px; */
+    height: 450px;
+    border-radius: 15px;
+    cursor: pointer;
+
+    img {
+        border-radius: inherit;
+        height: 100%;
+        width: 100%;
+    }
+
+
+    p {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        z-index: 2;
+        color: white;
+        font-size: 30px;
+        font-weight: 600;
+    }
+}

@@ -21,6 +21,11 @@
     margin: 0 auto;
 }
 
+.w-1200px {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 /* nav bar  */
 nav {
     padding: 10px 20px;
@@ -628,6 +633,11 @@ a {
 
 .danger {
     color: #FF0000;
+}
+
+.unavailable {
+    background-color: rgb(249, 215, 215) !important;
+    color: #FF0000 !important;
 }
 
 /* .block {

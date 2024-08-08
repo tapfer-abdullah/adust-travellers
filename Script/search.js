@@ -1,43 +1,9 @@
-import { activities } from "./HomeContents/Activities.js";
-import { destinations } from "./HomeContents/Destinations.js";
-
-
-// select / search destination 
 const select = new SlimSelect({
     select: '#selectElement',
     settings: {
         placeholderText: 'Search a place or activity',
     }
 })
-
-
-export const swiper1 = new Swiper(".mySwiper2", {
-    slidesPerView: 4,
-    spaceBetween: 30,
-    freeMode: true,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    navigation: {
-        nextEl: '.swiper-button-next2',
-        prevEl: '.swiper-button-prev2',
-    },
-});
-
-export const swiper2 = new Swiper(".mySwiper1", {
-    slidesPerView: 4,
-    spaceBetween: 30,
-    freeMode: true,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    navigation: {
-        nextEl: '.swiper-button-next1',
-        prevEl: '.swiper-button-prev1',
-    },
-});
 
 
 export function formatDate(date) {
@@ -134,13 +100,3 @@ document.getElementById("handleSearch").addEventListener("click", async () => {
 
     window.location.assign(`/destination/search.html?query=${searchText}&startDate=${startDate}&endDate=${endDate}`);
 })
-
-
-
-window.addEventListener('load', async () => {
-    // id, url, select
-    await destinations("destination-wrapper", "destination", "name0images");
-    await activities("top-activities-carts-container", "activity");
-});
-
-

@@ -29,6 +29,8 @@
         position: absolute;
         z-index: 2;
         background-color: white;
+        /* background-color: transparent; */
+        box-shadow: 1px 1px 20px black;
         padding: 50px;
         top: 50%;
         left: 50%;

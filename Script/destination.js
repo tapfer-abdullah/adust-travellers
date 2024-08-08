@@ -1,6 +1,6 @@
-import { GetDataByID } from "../Helper/fetchData.js";
-import { activityByID } from "./HomeContents/Activities.js";
-import { destinationByID } from "./HomeContents/Destinations.js";
+import { GetData, GetDataByID, searchDestination } from "../Helper/fetchData.js";
+import { activities, activityByID } from "./HomeContents/Activities.js";
+import { destinationByID, destinations } from "./HomeContents/Destinations.js";
 
 
 window.addEventListener("load", async () => {
@@ -22,6 +22,77 @@ window.addEventListener("load", async () => {
     //details
     else if (pathname == "/destination/details.html") {
         await activityByID("activity", searchObj?.id);
+    }
+    // search 
+    else if (pathname == "/destination/search.html") {
+        function formateDate(date) {
+            const dateArr = date.slice(0, 10).split("-");
+            return `${dateArr?.[2]}-${dateArr?.[1]}-${dateArr?.[0]}`
+        }
+        function formateDateMinusOne(date) {
+            const dateArr = date.slice(0, 10).split("-");
+            const day = parseInt(dateArr?.[2]) - 1;
+            return `${day ? day : 30}-${dateArr?.[1]}-${dateArr?.[0]}`
+        }
+
+        const notFound = document.getElementById("not-found");
+        if (searchObj?.query === 'all') {
+            const searchBanner = document.getElementById("search-banner");
+            searchBanner.innerHTML = `<h1>All Activities</h1>`;
+            notFound.classList.add("hidden");
+
+            await activities("search-activities-container", "activity");
+        }
+        else {
+            const { query, startDate, endDate } = searchObj;
+            const data = await searchDestination(query, startDate, endDate);
+
+            const searchBanner = document.getElementById("search-banner");
+
+
+            const length = data?.data?.length;
+            if (length > 0) {
+                searchBanner.innerHTML = `<h1>${query}</h1>
+                        <p>All activities from ${formateDate(startDate)} to ${formateDateMinusOne(endDate)}</p>`
+
+                notFound.classList.add("hidden");
+                await activities("search-activities-container", null, data);
+            }
+            else {
+                searchBanner.innerHTML = `<h1>${query}</h1>
+                        <p>No activity is available from ${formateDate(startDate)} to ${formateDateMinusOne(endDate)}</p>`
+
+                document.getElementById('search-activities-container').classList.add("hidden");
+                notFound.innerHTML = ` <img src="/public/assets/icon/warning.svg" alt="">
+                <p>Not found any activities !</p>`;
+            }
+        }
+    }
+    else if (pathname == "/destination/all.html") {
+        console.log({ pathname, searchObj })
+
+        const notFound = document.getElementById("not-found");
+
+
+        const data = await GetData("destination", "name0images");
+
+        const allDestinations = document.getElementById("all-destinations-container");
+
+
+        const length = data?.data?.length;
+        if (length > 0) {
+            await destinations("all-destinations-container", null, data);
+            notFound.classList.add("hidden");
+        }
+        else {
+            allDestinations.innerHTML = `<h1>${query}</h1>
+                        <p>No activity is available from </p>`
+
+            allDestinations.classList.add("hidden");
+            notFound.innerHTML = ` <img src="/public/assets/icon/warning.svg" alt="">
+                <p>Not found any activities !</p>`;
+        }
+
     }
     //payment success
     else if (pathname == '/payment/success.html') {

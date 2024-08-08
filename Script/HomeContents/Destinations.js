@@ -26,25 +26,51 @@ const swiper = new Swiper('.swiper', {
 
 
 export const destinations = async (id, url, select) => {
-    const data = await GetData(url, select || null);
+    let data;
 
     const container = document.getElementById(id);
 
-    data?.data?.map(singleData => {
-        const div = document.createElement("div");
+    if (url != null) {
+        data = await GetData(url, select || null);
 
-        div.classList.add("swiper-slide");
-        div.innerHTML = `<a href="/destination/index.html?id=${singleData?._id}">
-            <div class="top-destination-card">
-                <img src=${singleData?.images?.[0]} alt=${singleData?.name}/>
-                <div class="overlay">
+        data?.data?.map(singleData => {
+            const div = document.createElement("div");
+
+            div.classList.add("swiper-slide");
+            div.innerHTML = `<a href="/destination/index.html?id=${singleData?._id}">
+                <div class="top-destination-card">
+                    <img src=${singleData?.images?.[0]} alt=${singleData?.name}/>
+                    <div class="overlay">
+                    </div>
+                    <p>${singleData?.name}</p>
                 </div>
-                <p>${singleData?.name}</p>
-            </div>
-        </a>`
+            </a>`
 
-        container.appendChild(div)
-    })
+            container.appendChild(div)
+        })
+    }
+    else {
+        data = select;
+
+        data?.data?.map(singleData => {
+            const div = document.createElement("div");
+
+            div.innerHTML = `<a href="/destination/index.html?id=${singleData?._id}">
+                <div class="top-destination-card">
+                    <img src=${singleData?.images?.[0]} alt=${singleData?.name}/>
+                    <div class="overlay">
+                    </div>
+                    <p>${singleData?.name}</p>
+                </div>
+            </a>`
+
+            container.appendChild(div)
+        })
+    }
+
+
+
+
 
 }
 

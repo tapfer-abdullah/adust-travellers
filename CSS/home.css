@@ -44,7 +44,9 @@
         justify-content: space-between;
     }
 
-    input {
+    input,
+    .where-selector {
+        width: 100%;
         border: none;
         padding: 3px 5px;
         margin: 3px 0;
@@ -152,7 +154,8 @@ ion-icon {
     }
 
 
-    button {
+    button,
+    a {
         margin-top: 30px;
     }
 
@@ -522,4 +525,8 @@ ion-icon {
         margin-top: 30px;
     }
 
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }

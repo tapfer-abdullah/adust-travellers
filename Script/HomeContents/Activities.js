@@ -1,8 +1,17 @@
 import { GetData, GetDataByID } from "../../Helper/fetchData.js";
 
 export const activities = async (id, url, select) => {
-    const data = await GetData(url, select || null);
+    let data;
 
+    if (url != null) {
+        console.log("if")
+        data = await GetData(url, select || null);
+    }
+    else {
+        console.log("else")
+        data = select;
+    }
+    console.log({ url, data })
     const container = document.getElementById(id);
 
     data?.data?.map(singleData => {
@@ -71,6 +80,12 @@ export const activityByID = async (url, pageID) => {
 
     const data = await GetDataByID(url, pageID);
 
+    const selectedDate = new Date(data?.data?.startingDate);
+
+    // Get the current date and time
+    const currentDate = new Date();
+
+
     // const container = document.getElementById(id);
     const header = document.getElementById("activity-page-header");
     const images = document.getElementById("activity-page-images");
@@ -94,9 +109,10 @@ export const activityByID = async (url, pageID) => {
     placeDesc.innerText = `${data?.data?.placeDescription}`;
     tourDesc.innerText = `${data?.data?.tourDescription}`;
 
-    const condition = data?.data?.totalSeats - data?.data?.booked === 0;
+    const condition = (currentDate >= selectedDate) || (data?.data?.totalSeats - data?.data?.booked === 0);
 
-    cart.innerHTML = `<div>
+    cart.innerHTML = `
+                    <div>
                         <img src="/public/assets/icon/calender.svg" alt="" class="icon-image">
                         <p>${formateDate(data?.data?.startingDate)} to ${formateDate(data?.data?.endingDate)}</p>
                     </div>
@@ -133,7 +149,7 @@ export const activityByID = async (url, pageID) => {
                             </button>
                         </div>
                     </div>
-                    <button ${condition ? 'disabled' : ''} onclick="addToCart('${data?.data?._id}', '${data?.data?.name}', '${data?.data?.price}', '${data?.data?.images?.[0]}')" class="btn-add-cart ${(condition ? 'disabled' : '')}">ADD TO CART</button>
+                    <button ${condition ? 'disabled' : ''} onclick="addToCart('${data?.data?._id}', '${data?.data?.name}', '${data?.data?.price}', '${data?.data?.images?.[0]}')" class="btn-add-cart ${(condition ? 'disabled unavailable' : '')}">${condition ? "UNAVAILABLE" : "ADD TO CART"}</button>
                 `
 }
 

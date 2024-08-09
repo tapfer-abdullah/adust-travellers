@@ -1,11 +1,31 @@
 import cartComponent from "./sharedScript/cartComponent.js";
 import footer from "./sharedScript/footer.js";
 import { navbar } from "./sharedScript/navbar.js";
+import { jwtDecode } from "/node_modules/jwt-decode/build/esm/index.js";
 
 window.addEventListener('load', () => {
     document.getElementById("nav").innerHTML = navbar();
     document.getElementById("footer").innerHTML = footer();
     document.getElementById("shopping-cart").innerHTML = cartComponent();
+
+    const token = localStorage.getItem("ak-secret");
+
+    function decodeAndVerifyJwt(token, secret) {
+        console.log({ token })
+        try {
+            // Verify the token
+            // const decoded = window.jwt.verify(token, secret);
+            const decoded = jwtDecode(token);
+
+            // Log the decoded payload
+            console.log('Decoded JWT:', decoded);
+        } catch (err) {
+            // Handle token verification errors
+            console.error('Token verification failed:', err.message);
+        }
+    }
+
+    decodeAndVerifyJwt(token, "2b8a6a855AK29db225c0fA7bc553e752f24d79adee34f8721a2a93e1d22d5b88")
 
 
     // shopping cart 

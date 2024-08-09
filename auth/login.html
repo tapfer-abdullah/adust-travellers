@@ -17,11 +17,11 @@
         <div class="overlay"></div>
         <div class="content">
             <div class="login-container">
-                <form>
+                <form id="login-form">
                     <h3>Please Login</h3>
                     <div class="field">
                         <ion-icon name="mail"></ion-icon>
-                        <input required type="email" name="email" placeholder="Email address">
+                        <input required type="text" name="emailOrPhone" placeholder="Email or phone number">
                     </div>
                     <div class="field">
                         <ion-icon name="lock"></ion-icon>
@@ -37,6 +37,9 @@
                 </form>
             </div>
     </main>
+
+    <!-- javaScript -->
+    <script type="module" src="/Script/auth.js"></script>
 </body>
 
 </html>

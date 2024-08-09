@@ -17,23 +17,27 @@
         <div class="overlay"></div>
         <div class="content">
             <div class="registration-container">
-                <form>
+                <form id="register-form">
                     <h3>Registration Form</h3>
                     <div class="field">
                         <ion-icon name="person"></ion-icon>
-                        <input required type="text" name="fullName" placeholder="Full name">
+                        <input required type="text" name="fullName" placeholder="Full name *">
+                    </div>
+                    <div class="field">
+                        <ion-icon name="call"></ion-icon>
+                        <input required type="text" name="phone" placeholder="Phone number *">
                     </div>
                     <div class="field">
                         <ion-icon name="mail"></ion-icon>
-                        <input required type="email" name="email" placeholder="Email address">
+                        <input type="email" name="email" placeholder="Email address">
                     </div>
                     <div class="field">
                         <ion-icon name="lock"></ion-icon>
-                        <input required type="text" name="password" placeholder="Password">
+                        <input required type="password" name="password" placeholder="Password *">
                     </div>
                     <div class="field">
                         <ion-icon name="lock"></ion-icon>
-                        <input required type="text" name="confirmPassword" placeholder="Confirm password">
+                        <input required type="password" name="confirmPassword" placeholder="Confirm password *">
                     </div>
 
                     <button type="submit">
@@ -44,6 +48,9 @@
                 </form>
             </div>
     </main>
+
+    <!-- javaScript -->
+    <script type="module" src="/Script/auth.js"></script>
 </body>
 
 </html>

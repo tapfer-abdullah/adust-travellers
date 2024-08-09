@@ -1,5 +1,34 @@
+function decodeAndVerifyJwt(token, secret) {
+    try {
+        // Verify the token
+        const decoded = window.jwt.verify(token, secret);
+
+        // Log the decoded payload
+        console.log('Decoded JWT:', decoded);
+    } catch (err) {
+        // Handle token verification errors
+        console.error('Token verification failed:', err.message);
+    }
+}
+
+
 export const navbar = () => {
     const existingCart = localStorage.getItem('ak-travelers-cart');
+    // const token = localStorage.getItem("ak-secret");
+
+    // try {
+    //     // Verify the token
+    //     const decoded = jwt.verify(token, "2b8a6a855AK29db225c0fA7bc553e752f24d79adee34f8721a2a93e1d22d5b88");
+
+    //     // Log the decoded payload
+    //     console.log('Decoded JWT:', decoded);
+    // } catch (err) {
+    //     // Handle token verification errors
+    //     console.error('Token verification failed:', err.message);
+    // }
+
+    // decodeAndVerifyJwt(token, "2b8a6a855AK29db225c0fA7bc553e752f24d79adee34f8721a2a93e1d22d5b88")
+
     let quantity = 0;
     const cart = JSON.parse(existingCart);
     if (cart?.length > 0) {

@@ -1,0 +1,15 @@
+.dashboard-main-container {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+
+    .side-bar {
+        background-color: palegreen;
+        min-height: 100vh;
+        padding: 15px;
+    }
+
+    .main-contents {
+        background-color: beige;
+        padding: 15px;
+    }
+}

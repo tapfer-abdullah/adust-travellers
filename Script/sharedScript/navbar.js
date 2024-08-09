@@ -1,33 +1,36 @@
-function decodeAndVerifyJwt(token, secret) {
-    try {
-        // Verify the token
-        const decoded = window.jwt.verify(token, secret);
+const token = localStorage.getItem("ak-secret");
 
-        // Log the decoded payload
-        console.log('Decoded JWT:', decoded);
+export function decodeAndVerifyJwt(token) {
+    try {
+        // Decode the token using jwt-decode
+        const decoded = jwt_decode(token);
+        return decoded;
     } catch (err) {
-        // Handle token verification errors
-        console.error('Token verification failed:', err.message);
+        // Handle token decoding errors
+        console.error('Token decoding failed:', err.message);
     }
 }
 
 
 export const navbar = () => {
     const existingCart = localStorage.getItem('ak-travelers-cart');
-    // const token = localStorage.getItem("ak-secret");
+    const token = localStorage.getItem("ak-secret");
+    let isLogin = false;
+    let role = '';
+    let url = '/auth/login.html';
 
-    // try {
-    //     // Verify the token
-    //     const decoded = jwt.verify(token, "2b8a6a855AK29db225c0fA7bc553e752f24d79adee34f8721a2a93e1d22d5b88");
-
-    //     // Log the decoded payload
-    //     console.log('Decoded JWT:', decoded);
-    // } catch (err) {
-    //     // Handle token verification errors
-    //     console.error('Token verification failed:', err.message);
-    // }
-
-    // decodeAndVerifyJwt(token, "2b8a6a855AK29db225c0fA7bc553e752f24d79adee34f8721a2a93e1d22d5b88")
+    if (token) {
+        const result = decodeAndVerifyJwt(token);
+        // console.log({ result });
+        if (result?.data?.role) {
+            isLogin = true;
+            role = result?.data?.role;
+            url = `/dashboard/index.html?role=${role}`;
+        }
+        else {
+            localStorage.removeItem("ak-secret");
+        }
+    }
 
     let quantity = 0;
     const cart = JSON.parse(existingCart);
@@ -55,6 +58,7 @@ export const navbar = () => {
     <div class="shopping-cart-content" style="display: none;">
         <!-- Shopping cart details here -->
     </div>
-    <a href="/auth/login.html" class="btn-solid">Login</a>
+   
+    <a href="${url}"  class="btn-solid">${isLogin ? "Dashboard" : "Login"}</a>
 </div>`
 }

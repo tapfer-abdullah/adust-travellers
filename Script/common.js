@@ -9,3 +9,20 @@ const toast = (title) => {
     }).showToast();
 }
 
+// const token = localStorage.getItem("ak-secret");
+
+// export function decodeAndVerifyJwt(token) {
+//     console.log({ token });
+//     try {
+//         // Decode the token using jwt-decode
+//         const decoded = jwt_decode(token);
+
+//         // Log the decoded payload
+//         console.log('Decoded JWT:', decoded);
+//     } catch (err) {
+//         // Handle token decoding errors
+//         console.error('Token decoding failed:', err.message);
+//     }
+// }
+
+// decodeAndVerifyJwt(token);

@@ -60,7 +60,6 @@ window.addEventListener("load", () => {
 
             delete data.confirmPassword;
 
-
             try {
                 // Send data to the server using fetch with async/await
                 const response = await fetch(`${bashedURL}/user/register`, {
@@ -100,10 +99,7 @@ window.addEventListener("load", () => {
             event.preventDefault();
 
             const formData = new FormData(event.target);
-
             const data = Object.fromEntries(formData.entries());
-
-            console.log({ data });
 
             try {
                 // Send data to the server using fetch with async/await
@@ -123,12 +119,13 @@ window.addEventListener("load", () => {
                 const result = await response.json();
 
                 if (result?.success == false) {
-                    return alert(result?.message)
+                    localStorage.removeItem("ak-secret");
+                    return alert(result?.message);
                 }
                 else {
-                    alert("Login successfully");
                     localStorage.setItem("ak-secret", result?.data);
                     window.location.assign("/index.html");
+                    alert("Login successfully");
                 }
 
             } catch (error) {

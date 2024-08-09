@@ -1,5 +1,5 @@
-const bashedURL = 'https://adust-travllers-backend.vercel.app/api/v1';
-// const bashedURL = 'http://localhost:5000/api/v1';
+// const bashedURL = 'https://adust-travllers-backend.vercel.app/api/v1';
+const bashedURL = 'http://localhost:5000/api/v1';
 
 
 window.addEventListener("load", () => {
@@ -110,10 +110,6 @@ window.addEventListener("load", () => {
                     },
                     body: JSON.stringify(data)
                 });
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.success}`);
-                }
 
                 // Parse the JSON response from the server
                 const result = await response.json();

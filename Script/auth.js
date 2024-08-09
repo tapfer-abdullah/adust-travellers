@@ -1,5 +1,5 @@
-// const bashedURL = 'https://adust-travllers-backend.vercel.app/api/v1';
-const bashedURL = 'http://localhost:5000/api/v1';
+const bashedURL = 'https://adust-travllers-backend.vercel.app/api/v1';
+// const bashedURL = 'http://localhost:5000/api/v1';
 
 
 window.addEventListener("load", () => {

@@ -13,6 +13,30 @@ export function decodeAndVerifyJwt(token) {
 }
 
 
+function formateDate(date) {
+    const dateObj = new Date(date);
+    // Get the day, month, and year from the Date object
+    const day = String(dateObj.getDate()).padStart(2, '0');
+    const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+    const year = dateObj.getFullYear();
+
+    // Format the date as DD-MM-YYYY
+    const formattedDate = `${day}-${month}-${year}`;
+    return formattedDate;
+}
+
+function setDefaultData(data) {
+    // Iterate over the keys of the object
+    for (let key in data) {
+        // Check if the form has a field with the name attribute matching the key
+        let field = document.querySelector(`[name=${key}]`);
+        if (field) {
+            // Set the value of the form field to the corresponding value in the object
+            field.value = data[key];
+        }
+    }
+}
+
 window.addEventListener("load", async () => {
     const allSearchParams = window.location.search.split("?")?.[1]?.split("&");
     const pathname = window.location.pathname;
@@ -24,27 +48,60 @@ window.addEventListener("load", async () => {
         const arr = s.split("=");
         searchObj[`${arr[0]}`] = arr[1];
     });
-    console.log({ pathname, searchObj })
+    // console.log({ pathname, searchObj })
 
     if (pathname == "/dashboard/index.html") {
         const existingCart = localStorage.getItem('ak-travelers-cart');
 
-        let isLogin = false;
-
-        if (token) {
-            const result = decodeAndVerifyJwt(token);
-            console.log({ result });
-            if (result?.data?.role) {
-                isLogin = true;
-            }
-            else {
-                localStorage.removeItem("ak-secret")
-            }
+        if (!token) {
+            localStorage.removeItem("ak-secret");
+            window.location.assign("/auth/login.html");
+            return alert("Session expired, please login!");
         }
+
+
+        // const result = decodeAndVerifyJwt(token);
+        // console.log({ result });
+
+
+        try {
+            const response = await fetch(`${bashedURL}/user/info`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+
+            if (response?.status == 401) {
+                localStorage.removeItem("ak-secret");
+                window.location.assign("/auth/login.html");
+                return alert("Session expired, please login!");
+            }
+
+
+
+            const data = await response.json();
+            console.log('user fetched:', data);
+            setDefaultData(data?.data);
+
+
+            if (!data?.success) {
+                return alert(data?.message)
+            }
+
+
+        } catch (error) {
+            console.error('Error fetching data:', error.message); // Log any errors
+        }
+
+
     }
 
-    if (searchObj?.params == "orders") {
-        console.log("orders")
+    if (searchObj?.params == "orders" || searchObj?.role == "user") {
+        console.log("orders");
+        document.getElementById("profile-form").classList.add("hidden");
 
         try {
             const response = await fetch(`${bashedURL}/order/user`, {
@@ -55,17 +112,92 @@ window.addEventListener("load", async () => {
                 }
             });
 
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
+
+            if (response?.status == 401) {
+                localStorage.removeItem("ak-secret");
+                window.location.assign("/index.html");
+                return alert("Session expired, please login!");
             }
 
             const data = await response.json(); // Parse the JSON data from the response
-            console.log('Data fetched:', data); // Log the fetched data
+            // console.log('Data fetched:', data); // Log the fetched data
 
 
             if (!data?.success) {
-                return alert("You haven't order anything yet!")
+                return alert(data?.message)
             }
+
+            const ordersContainer = document.getElementById("all-orders-container");
+
+            data?.data?.map((order, index) => {
+                const div = document.createElement("div");
+                div.classList.add("single-order-container");
+
+                div.innerHTML = `
+                <div class="order-number">
+                        <p>#${order?.orderNumber || index + 1}</p>
+                        <img src="/public/assets/dashboard/right-down.svg" alt="">
+                    </div>
+                    <div class="single-order">
+                        <div class="orders" id="order-cart-${index}"> 
+
+                        </div>
+                        <div class="personal-info">
+                            <h3>${order?.name}</h3>
+                            <p><span class="semi-bold">Mobile:</span> ${order?.phone}</p>
+                            <p><span class="semi-bold">Email:</span> ${order?.email}</p>
+                            <p><span class="semi-bold">Address:</span> ${order?.address}</p>
+                            <p><span class="semi-bold">Pickup:</span> ${order?.pickUpLocation}</p>
+                            <p><span class="semi-bold">Order date:</span> ${formateDate(order?.createdAt)}</p>
+                            <div class="divider"></div>
+                            <div class="flex items-center justify-between">
+                                <p class="semi-bold">Subtotal:</p>
+                                <p>৳ ${(order?.total).toFixed(1)}</p>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <p class="semi-bold">Discount:</p>
+                                <p>- ৳ ${(order?.discountedAmount).toFixed(1)}</p>
+                            </div>
+                            <div class="text-xl mt-1 bold-7 flex items-center justify-between">
+                                <p class="">Total:</p>
+                                <p>৳ ${(order?.total - order?.discountedAmount).toFixed(1)}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                ordersContainer.appendChild(div);
+
+
+                order?.cart?.map((c, idx) => {
+                    const cart = document.getElementById(`order-cart-${index}`);
+                    const innerDiv = document.createElement("div");
+                    innerDiv.classList.add("order-info");
+
+                    innerDiv.innerHTML = `
+                    <a href="/destination/details.html?id=${c?.id?._id}" class="view-url">View Details</a>
+                    <div>
+                    <a href="/destination/details.html?id=${c?.id?._id}">
+                    <img src="${c?.id?.images?.[0]}" alt="">
+                    </a>
+                    </div>
+                                
+                                <div class="description">
+                                    <h3>${c?.id?.name}</h3>
+                                    <p class="semi-bold">${c?.id?.location}</p>
+                                    <p>${c?.id?.days} days ${c?.id?.nights} nights</p>
+                                    <p><span class="semi-bold">Journey:</span> ${formateDate(c?.id?.startingDate)} to ${formateDate(c?.id?.endingDate)}</p>
+                                    <p><span class="semi-bold">Persons:</span> ${c?.person}</p>
+                                    <p class="price">
+                                        <span>৳${c?.id?.comparePrice} </span> ৳${c?.id?.price}
+                                    </p>
+                                </div>
+                            `;
+
+                    cart.appendChild(innerDiv);
+                })
+
+            })
 
 
 
@@ -74,7 +206,51 @@ window.addEventListener("load", async () => {
         }
     }
     else if (searchObj?.params == "profile") {
-        console.log("profile")
+        console.log("profile");
+        const form = document.getElementById("profile-form");
+        form.classList.remove("hidden");
+        document.getElementById("all-orders-container").classList.add("hidden");
+
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const updatedData = Object.fromEntries(formData.entries());
+            console.log({ updatedData });
+
+            const response = await fetch(`${bashedURL}/user`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(updatedData)
+            });
+
+            const result = await response.json();
+
+            if (result?.success) {
+                localStorage.setItem("ak-secret", result?.data?.jwtRes);
+                alert("Info updated!")
+            }
+
+            console.log({ result });
+        })
+
+
+
+
+        document.getElementById('imageUpload').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('profileImage').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
     }
 });
 

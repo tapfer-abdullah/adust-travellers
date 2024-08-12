@@ -76,7 +76,7 @@ window.addEventListener('load', () => {
                             alt=""/>
                         <div class="single-cart-info">
                             <h4>${sp?.name} x ${sp?.person}</h4>
-                            <p>$${sp?.person * sp.price}</p>
+                            <p>৳${sp?.person * sp.price}</p>
                             <div class="quantity">
                                 <button onclick="decreaseQuantityOfCart('${sp?.id}')" class="quantity-btn quantity-btn-minus">
                                     <img src="/public/assets/icon/minus.svg" alt="" class="icon-img"/>
@@ -107,7 +107,7 @@ window.addEventListener('load', () => {
                     alt=""/>
                 <div class="single-cart-info">
                     <h4>${sp?.name} x ${sp?.person}</h4>
-                    <p>$${sp?.person * sp.price}</p>
+                    <p>৳${sp?.person * sp.price}</p>
                     <div class="quantity">
                         <button onclick="decreaseQuantityOfCart('${sp?.id}')" class="quantity-btn quantity-btn-minus">
                             <img src="/public/assets/icon/minus.svg" alt="" class="icon-img"/>

@@ -640,6 +640,30 @@ a {
     color: #FF0000 !important;
 }
 
+.semi-bold {
+    font-weight: 600;
+}
+
+.bold {
+    font-weight: 800;
+}
+
+.bold-7 {
+    font-weight: 700;
+}
+
+.text-xl {
+    font-size: 20px;
+}
+
+.mt-1 {
+    margin-top: 5px;
+}
+
+.mt-2 {
+    margin-top: 10px;
+}
+
 /* .block {
     display: block;
 } */

@@ -139,7 +139,7 @@ discountForm.addEventListener("submit", async function (event) {
                     checkoutPageDiscountD.innerHTML = `<img src="/public/assets/icon/tag.svg" alt="" class="icon">
                                     <p id="discountCode-p">${discountCode}</p>`;
 
-                    localStorage.setItem("ak-traveler-dis", `${discountCode}$p$${result.data?.amount}`);
+                    localStorage.setItem("ak-traveler-dis", `${discountCode}$p৳${result.data?.amount}`);
                 }
                 else if (result.data?.type == "fixed") {
                     const reducedMoney = result.data?.amount;
@@ -149,7 +149,7 @@ discountForm.addEventListener("submit", async function (event) {
                     checkoutPageDiscountD.innerHTML = `<img src="/public/assets/icon/tag.svg" alt="" class="icon">
                                     <p id="discountCode-p">${discountCode}</p>`;
 
-                    localStorage.setItem("ak-traveler-dis", `${discountCode}$f$${result.data?.amount}`);
+                    localStorage.setItem("ak-traveler-dis", `${discountCode}$f৳${result.data?.amount}`);
                 }
 
 

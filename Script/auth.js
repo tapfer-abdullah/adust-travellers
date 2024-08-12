@@ -120,7 +120,7 @@ window.addEventListener("load", () => {
                 }
                 else {
                     localStorage.setItem("ak-secret", result?.data);
-                    window.location.assign("/index.html");
+                    window.location.assign("/dashboard/index.html");
                     alert("Login successfully");
                 }
 

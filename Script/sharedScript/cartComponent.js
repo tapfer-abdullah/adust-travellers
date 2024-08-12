@@ -49,7 +49,7 @@ const cartComponent = () => {
                     <div class="divider"></div>
                     <div class="subtotal-div">
                         <p>Subtotal:</p>
-                        <h3>$<span id="shopping-cart-subtotal">${subTotal.toFixed(1)}</span></h3>
+                        <h3>৳<span id="shopping-cart-subtotal">${subTotal.toFixed(1)}</span></h3>
                     </div>
                     
                     <div id="cart-btn">

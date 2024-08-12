@@ -144,8 +144,8 @@ export const destinationByID = async (url, pageID) => {
 
             <div class="flex gap-3 items-center justify-between">
                 <div class="">
-                    <h4 class="line-through">$${singleData?.comparePrice}</h4>
-                    <h3><span>From </span>$${singleData?.price}</h3>
+                    <h4 class="line-through">৳${singleData?.comparePrice}</h4>
+                    <h3><span>From </span>৳${singleData?.price}</h3>
                 </div>
 
                 <div class="flex gap-3 items-center">

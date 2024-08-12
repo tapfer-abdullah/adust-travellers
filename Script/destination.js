@@ -69,7 +69,6 @@ window.addEventListener("load", async () => {
         }
     }
     else if (pathname == "/destination/all.html") {
-        console.log({ pathname, searchObj })
 
         const notFound = document.getElementById("not-found");
 
@@ -133,7 +132,7 @@ window.addEventListener("load", async () => {
 
                 <div class="btn-container">
                     <a class="btn-outline" href="/index.html">Back To Home</a>
-                    <a class="btn-outline" href="/index.html">View Order</a>
+                    <a class="btn-outline" href="/dashboard/index.html?params=orders">View Orders</a>
                 </div>`;
 
         const orderedDiv = document.getElementById("ordered-destinations");
@@ -153,7 +152,7 @@ window.addEventListener("load", async () => {
                                 <h4>${so?.id?.name}</h4>
                                 <p>Person: ${so?.person}</p>
                             </div>
-                             <p>$${(so?.id?.price * so?.person).toFixed(1)}</p>
+                             <p>৳${(so?.id?.price * so?.person).toFixed(1)}</p>
                         </div>
                     `;
 
@@ -167,17 +166,17 @@ window.addEventListener("load", async () => {
         amountTable.innerHTML = `<tr>
                         <td class="bold">Subtotal:</td>
                         <td></td>
-                        <td class="end">$${total}</td>
+                        <td class="end">৳${total}</td>
                     </tr>
                     <tr>
                         <td class="bold">Discount:</td>
                         <td class="discount-icon-div">${discount}</td>
-                        <td class="end">- $${discountedAmount || 0.0}</td>
+                        <td class="end">- ৳${discountedAmount || 0.0}</td>
                     </tr>
                     <tr class="total-tr">
                         <td class="bold">Total:</td>
                         <td></td>
-                        <td class="bold end">$${(total - discountedAmount.toFixed(1))}</td>
+                        <td class="bold end">৳${(total - discountedAmount.toFixed(1))}</td>
                     </tr>`;
     }
 })

@@ -7,6 +7,7 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="/CSS/main.css">
     <link rel="stylesheet" href="/CSS/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- jwt  -->
     <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
 </head>
@@ -47,6 +48,49 @@
                     <img src="/public/assets/dashboard/image-5.jpg" alt="">
                 </div>
             </div>
+
+            <!-- all orders ================-->
+            <div class="all-orders" id="all-orders-container"></div>
+
+            <!-- profile ================-->
+
+            <form id="profile-form" class="hidden">
+                <!-- <div class="img-div">
+                    <input type="file" id="imageInput" name="image">
+                    <img src="/public/assets/dashboard/image-5.jpg" alt="">
+                </div> -->
+                <div id="profileForm">
+                    <div class="image-container">
+                        <img id="profileImage" src="/public/assets/dashboard/image-5.jpg" alt="Profile Picture">
+                        <label for="imageUpload" class="upload-icon">
+                            <i class="fa fa-camera"></i>
+                        </label>
+                        <input type="file" id="imageUpload" name="profile-pic" accept="image/*">
+                    </div>
+                </div>
+
+                <div> <label for="name">Name:</label></br>
+                    <input type="text" name="fullName" id="name" placeholder="Enter your name" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label></br>
+                    <input type="email" name="email" id="email" placeholder="Enter your email">
+                </div>
+                <div><label for="phone">Phone number:</label></br>
+                    <input type="text" name="phone" id="phone" placeholder="Enter your number" required>
+                </div>
+                <div>
+                    <label for="address">Address:</label></br>
+                    <input type="text" name="address" id="address" placeholder="Enter your address">
+                </div>
+                <div>
+                    <label for="address">Bio:</label></br>
+                    <textarea name="bio" id="" rows="3"></textarea>
+                </div>
+
+                <input type="submit" value="Update">
+            </form>
+
         </div>
     </main>
 

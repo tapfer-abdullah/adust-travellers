@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jodit/4.2.27/jodit.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jodit/4.2.27/jodit.min.js"></script>
+
+</head>
+
+<body>
+    all activities add
+    <!-- Your content -->
+    <textarea id="editor"></textarea>
+
+    <!-- Jodit scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/jodit@4.2.27/build/jodit.min.js"></script>
+
+    <!-- Your custom script -->
+    <script>
+        window.addEventListener("load", () => {
+            const editor = Jodit.make('#editor');
+        })
+    </script>
+</body>
+
+</html>

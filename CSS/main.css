@@ -667,3 +667,72 @@ a {
 /* .block {
     display: block;
 } */
+
+
+
+
+
+
+
+
+
+
+
+
+/* media query ==============================================> */
+
+/* laptop (Extra extra large) */
+@media only screen and (min-width: 1201px) {
+    #small-nav {
+        display: none !important;
+    }
+}
+
+/* Extra large */
+@media (min-width: 993px) and (max-width: 1200px) {
+    #small-nav {
+        display: none !important;
+    }
+}
+
+/* Smartphones (lg) */
+@media (min-width: 769px) and (max-width: 992px) {
+    #small-nav {
+        display: none !important;
+    }
+}
+
+/* Smartphones (landscape md) */
+@media (min-width: 577px) and (max-width: 768px) {
+    #small-nav {
+        display: none !important;
+    }
+}
+
+/* Smartphones (portrait) */
+@media only screen and (max-width: 576px) {
+    #nav {
+        display: none;
+    }
+
+    .title-div {
+        margin-left: 10px;
+        margin-right: 10px;
+
+        h3 {
+
+            font-size: 20px !important;
+        }
+    }
+
+    footer {
+        .contents {
+            padding: 15px;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+    }
+
+
+
+}

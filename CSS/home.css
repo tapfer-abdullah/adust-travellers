@@ -530,3 +530,127 @@ ion-icon {
 .cursor-pointer {
     cursor: pointer;
 }
+
+
+/* media query ==============================================> */
+
+/* laptop (Extra extra large) */
+@media only screen and (max-width: 1400px) {}
+
+/* Extra large */
+@media only screen and (max-width: 1200px) {}
+
+/* Smartphones (lg) */
+@media only screen and (max-width: 992px) {}
+
+/* Smartphones (landscape md) */
+@media only screen and (max-width: 768px) {}
+
+/* Smartphones (portrait) */
+@media only screen and (max-width: 576px) {
+
+    .banner-contents {
+
+        h1 {
+            font-size: 30px;
+        }
+
+        p:not(.icon) {
+            font-size: 20px;
+            font-weight: 500;
+        }
+    }
+
+    .booking-container {
+        border-radius: 10px !important;
+
+
+
+        form {
+            align-items: start;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .search-icon {
+            margin-left: auto;
+        }
+    }
+
+
+    .policy-container {
+        grid-template-columns: 1fr;
+    }
+
+    .policy-card {
+        text-align: center;
+        padding: 10px;
+    }
+
+
+
+    .swiper-slide,
+    .swiper-slide-active {
+        outline: 2px solid transparent;
+    }
+
+
+    .inspired-container {
+        grid-template-columns: 1fr;
+    }
+
+    .inspired-card {
+        width: 98%;
+        margin: 0 auto;
+
+        .inspired-card-content {
+            padding: 40px !important;
+
+            h3 {
+                font-size: 22px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    /* top-activities-container==============================> */
+    .top-activities-container {
+        margin-left: 10px;
+        margin-right: 10px;
+
+        .title {
+            font-size: 22px;
+        }
+
+        .cards-div {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* subscribe-container ===============================> */
+    .subscribe-container {
+        min-height: 250px;
+        border-radius: 0px;
+
+        .subscribe-content {
+            width: 80%;
+            margin: 0 auto;
+            padding: 15px;
+
+            h3 {
+                font-size: 22px;
+            }
+
+            input {
+                padding: 10px 20px;
+            }
+
+        }
+    }
+
+    /* image-gallery-container ============================> */
+    .image-gallery-container {}
+
+    /* top-activities-container==============================> */
+    .home-blog-container {}
+}

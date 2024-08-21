@@ -23,6 +23,28 @@ export const swiper1 = new Swiper(".mySwiper2", {
         nextEl: '.swiper-button-next2',
         prevEl: '.swiper-button-prev2',
     },
+    breakpoints: {
+        // when window width is >= 1024px (desktops)
+        1024: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+        },
+        // when window width is >= 768px (tablets)
+        768: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+        },
+        // when window width is >= 480px (smartphones)
+        480: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+        },
+        // when window width is < 480px (small screens)
+        0: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+        }
+    }
 });
 
 export const swiper2 = new Swiper(".mySwiper1", {
@@ -37,6 +59,28 @@ export const swiper2 = new Swiper(".mySwiper1", {
         nextEl: '.swiper-button-next1',
         prevEl: '.swiper-button-prev1',
     },
+    breakpoints: {
+        // when window width is >= 1024px (desktops)
+        1024: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+        },
+        // when window width is >= 768px (tablets)
+        768: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+        },
+        // when window width is >= 480px (smartphones)
+        480: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+        },
+        // when window width is < 480px (small screens)
+        0: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+        }
+    }
 });
 
 

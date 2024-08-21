@@ -246,3 +246,22 @@
         font-weight: 600;
     }
 }
+
+
+
+/* media query ==============================================> */
+
+/* laptop (Extra extra large) */
+@media only screen and (max-width: 1400px) {}
+
+/* Extra large */
+@media only screen and (max-width: 1200px) {}
+
+/* Smartphones (lg) */
+@media only screen and (max-width: 992px) {}
+
+/* Smartphones (landscape md) */
+@media only screen and (max-width: 768px) {}
+
+/* Smartphones (portrait) */
+@media only screen and (max-width: 576px) {}

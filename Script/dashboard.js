@@ -29,11 +29,14 @@ function setDefaultData(data) {
     // Iterate over the keys of the object
     for (let key in data) {
         // Check if the form has a field with the name attribute matching the key
-        let field = document.querySelector(`[name=${key}]`);
-        if (field) {
-            // Set the value of the form field to the corresponding value in the object
-            field.value = data[key];
+        if (key != "image") {
+            let field = document.querySelector(`[name=${key}]`);
+            if (field) {
+                // Set the value of the form field to the corresponding value in the object
+                field.value = data[key];
+            }
         }
+
     }
 }
 
@@ -60,10 +63,6 @@ window.addEventListener("load", async () => {
         }
 
 
-        // const result = decodeAndVerifyJwt(token);
-        // console.log({ result });
-
-
         try {
             const response = await fetch(`${bashedURL}/user/info`, {
                 method: 'GET',
@@ -83,8 +82,9 @@ window.addEventListener("load", async () => {
 
 
             const data = await response.json();
-            console.log('user fetched:', data);
             setDefaultData(data?.data);
+            document.getElementById('profileImage').src = data.data?.image;
+            document.getElementById('nav-profile-img').src = data.data?.image;
 
 
             if (!data?.success) {
@@ -206,47 +206,46 @@ window.addEventListener("load", async () => {
         }
     }
     else if (searchObj?.params == "profile") {
-        console.log("profile");
-        const form = document.getElementById("profile-form");
-        form.classList.remove("hidden");
-        document.getElementById("all-orders-container").classList.add("hidden");
 
-        form.addEventListener("submit", async (event) => {
+        const form = document.getElementById('profile-form');
+        form.classList.remove('hidden');
+        document.getElementById('all-orders-container').classList.add('hidden');
+
+        form.addEventListener('submit', async (event) => {
             event.preventDefault();
 
-            const formData = new FormData(event.target);
-            const updatedData = Object.fromEntries(formData.entries());
-            console.log({ updatedData });
+            // Collect form data
+            const formData = new FormData(event.target); // Handles both text fields and image
+            try {
+                const response = await fetch(`${bashedURL}/user`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Authorization': `Bearer ${token}`, // JWT token for authorization
+                    },
+                    body: formData, // FormData includes image and other fields
+                });
 
-            const response = await fetch(`${bashedURL}/user`, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
-                body: JSON.stringify(updatedData)
-            });
+                const result = await response.json();
 
-            const result = await response.json();
+                if (result?.success) {
+                    document.getElementById('nav-profile-img').src = result?.data?.result?.image;
+                    localStorage.setItem('ak-secret', result?.data?.jwtRes); // Update JWT token if returned
+                    alert('Info updated!');
+                }
 
-            if (result?.success) {
-                localStorage.setItem("ak-secret", result?.data?.jwtRes);
-                alert("Info updated!")
+            } catch (error) {
+                console.error('Error updating profile:', error);
             }
+        });
 
-            console.log({ result });
-        })
-
-
-
-
+        // Image preview when user selects a file
         document.getElementById('imageUpload').addEventListener('change', function (event) {
             const file = event.target.files[0];
             if (file) {
                 const reader = new FileReader();
                 reader.onload = function (e) {
-                    document.getElementById('profileImage').src = e.target.result;
-                }
+                    document.getElementById('profileImage').src = e.target.result; // Show preview image
+                };
                 reader.readAsDataURL(file);
             }
         });

@@ -1,11 +1,16 @@
 import cartComponent from "./sharedScript/cartComponent.js";
 import footer from "./sharedScript/footer.js";
-import { navbar } from "./sharedScript/navbar.js";
+import { navbar, navSidebar, smallNavbar } from "./sharedScript/navbar.js";
 
 window.addEventListener('load', () => {
     document.getElementById("nav").innerHTML = navbar();
+    document.getElementById("small-nav").innerHTML = smallNavbar();
+    document.getElementById("nav-sidebar").innerHTML = navSidebar();
     document.getElementById("footer").innerHTML = footer();
     document.getElementById("shopping-cart").innerHTML = cartComponent();
+
+    document.getElementById('smallNav-open').addEventListener('click', () => toggleNavBar(true));
+    document.getElementById('smallNav-close').addEventListener('click', () => toggleNavBar(false));
 
 
     // shopping cart 
@@ -153,6 +158,7 @@ window.addEventListener('load', () => {
 
 
     document.getElementById('shopping-icon').addEventListener('change', toggleShoppingCart);
+
 });
 
 export function toggleShoppingCart() {
@@ -160,6 +166,14 @@ export function toggleShoppingCart() {
         document.getElementById('shopping-cart').classList.remove('visible');
     } else {
         document.getElementById('shopping-cart').classList.add('visible');
+    }
+}
+
+export function toggleNavBar(condition) {
+    if (condition) {
+        document.getElementById('nav-sidebar').classList.remove('visible');
+    } else {
+        document.getElementById('nav-sidebar').classList.add('visible');
     }
 }
 

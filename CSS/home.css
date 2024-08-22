@@ -99,7 +99,7 @@ ion-icon {
     text-align: center;
 
     img {
-        width: 80px;
+        width: 100px;
         align-items: center;
     }
 
@@ -580,12 +580,14 @@ ion-icon {
 
     .policy-container {
         grid-template-columns: 1fr;
+
+        .policy-card {
+            text-align: center;
+            padding: 10px;
+        }
     }
 
-    .policy-card {
-        text-align: center;
-        padding: 10px;
-    }
+
 
 
     .top-destination-card {

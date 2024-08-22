@@ -17,8 +17,6 @@
             translate: -50% -50%;
             text-align: center;
         }
-
-
     }
 
     .activities-container {
@@ -264,4 +262,17 @@
 @media only screen and (max-width: 768px) {}
 
 /* Smartphones (portrait) */
-@media only screen and (max-width: 576px) {}
+@media only screen and (max-width: 576px) {
+
+    /* All/search activities */
+    .search-main-content {
+        .activities-container {
+            grid-template-columns: 1fr;
+            margin: 10px;
+        }
+
+        #search-activities-container {
+            grid-template-columns: 1fr !important;
+        }
+    }
+}

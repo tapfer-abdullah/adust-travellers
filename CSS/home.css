@@ -588,6 +588,9 @@ ion-icon {
     }
 
 
+    .top-destination-card {
+        height: 300px;
+    }
 
     .swiper-slide,
     .swiper-slide-active {
@@ -597,6 +600,7 @@ ion-icon {
 
     .inspired-container {
         grid-template-columns: 1fr;
+        margin: 80px 10px;
     }
 
     .inspired-card {
@@ -614,10 +618,13 @@ ion-icon {
     }
 
     /* top-activities-container==============================> */
-    .top-activities-container {
-        margin-left: 10px;
-        margin-right: 10px;
+    .top-destination-container,
+    .top-activities-container,
+    .home-blog-container {
+        margin: 0 10px;
+    }
 
+    .top-activities-container {
         .title {
             font-size: 22px;
         }
@@ -652,5 +659,9 @@ ion-icon {
     .image-gallery-container {}
 
     /* top-activities-container==============================> */
-    .home-blog-container {}
+    .top-activities-container {}
+
+    .home-blog-container {
+        margin-bottom: 15px;
+    }
 }

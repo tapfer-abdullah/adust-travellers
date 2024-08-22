@@ -246,4 +246,49 @@ body {
 @media only screen and (max-width: 768px) {}
 
 /* Smartphones (portrait) */
-@media only screen and (max-width: 576px) {}
+@media only screen and (max-width: 576px) {
+    body {
+        background-size: inherit;
+
+        .failed {
+            img {
+                max-width: 60px;
+            }
+
+            h3 {
+                font-size: 16px !important;
+            }
+
+            .btn-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+
+                a {
+                    text-decoration: none;
+                    white-space: nowrap;
+
+                }
+            }
+        }
+
+        /* success  */
+        #order-success-container {
+            padding: 15px;
+            margin: 20px 15px;
+
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: translate(0%, 0%);
+
+            .content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+
+    }
+}

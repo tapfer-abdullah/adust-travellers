@@ -351,4 +351,73 @@
 @media only screen and (max-width: 768px) {}
 
 /* Smartphones (portrait) */
-@media only screen and (max-width: 576px) {}
+@media only screen and (max-width: 576px) {
+
+    /* all destination page  */
+    #search-banner {
+        h1 {
+            font-size: 24px;
+        }
+    }
+
+    #all-destinations-container {
+        grid-template-columns: 1fr !important;
+        margin: 50px 10px !important;
+
+        .top-destination-card {
+            height: 300px !important;
+
+            p {
+                font-size: 22px !important;
+            }
+        }
+    }
+
+    /* single destination page  */
+    #single-destination-page {
+
+        #single-destination-page-article,
+        #single-destination-page-images,
+        #single-destination-header {
+            margin: 10px;
+        }
+
+        #single-destination-page-activities {
+            margin-bottom: 15px;
+
+            .title-div {
+                margin: 10px 0;
+            }
+        }
+    }
+
+    /* Activity details  */
+    .home-contents {
+        margin: 0 10px 10px 10px;
+
+        .header {
+            flex-direction: column;
+            align-items: start;
+            justify-content: start;
+            gap: 5px;
+        }
+
+        .details {
+            grid-template-columns: 1fr;
+            gap: 5px;
+
+            .info {
+                order: 1;
+                /* order: 2; */
+            }
+
+            .cart {
+                order: 2;
+                /* order: 1; */
+            }
+        }
+    }
+
+
+
+}

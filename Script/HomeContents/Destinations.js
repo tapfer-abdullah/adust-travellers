@@ -22,6 +22,28 @@ const swiper = new Swiper('.swiper', {
     scrollbar: {
         el: '.swiper-scrollbar',
     },
+    breakpoints: {
+        // when window width is >= 1024px (desktops)
+        1024: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+        },
+        // when window width is >= 768px (tablets)
+        768: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+        },
+        // when window width is >= 480px (smartphones)
+        480: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+        },
+        // when window width is < 480px (small screens)
+        0: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+        }
+    }
 });
 
 

@@ -106,8 +106,10 @@ export const activityByID = async (url, pageID) => {
         images.appendChild(img)
     })
 
-    placeDesc.innerText = `${data?.data?.placeDescription}`;
-    tourDesc.innerText = `${data?.data?.tourDescription}`;
+    // placeDesc.innerText = `${data?.data?.placeDescription}`;
+    // tourDesc.innerText = `${data?.data?.tourDescription}`;
+    placeDesc.innerHTML = `${data?.data?.placeDescription}`;
+    tourDesc.innerHTML = `${data?.data?.tourDescription}`;
 
     const condition = (currentDate >= selectedDate) || (data?.data?.totalSeats - data?.data?.booked === 0);
 

@@ -2,10 +2,10 @@
 const bashedURL = 'https://adust-travllers-backend.vercel.app/api/v1';
 // const bashedURL = 'http://localhost:5000/api/v1';
 
-export const GetData = async (url, select) => {
+export const GetData = async (url, select, options = '') => {
     try {
         if (select) {
-            const response = await fetch(`${bashedURL}/${url}?select=${select}`);
+            const response = await fetch(`${bashedURL}/${url}?select=${select}${options}`);
 
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -14,7 +14,7 @@ export const GetData = async (url, select) => {
             return data;
         }
         else {
-            const response = await fetch(`${bashedURL}/${url}`);
+            const response = await fetch(`${bashedURL}/${url}${options}`);
 
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -31,9 +31,9 @@ export const GetData = async (url, select) => {
 };
 
 
-export const GetDataByID = async (url, id) => {
+export const GetDataByID = async (url, id, options = '') => {
     try {
-        const response = await fetch(`${bashedURL}/${url}/${id}`);
+        const response = await fetch(`${bashedURL}/${url}/${id}${options}`);
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);

@@ -5,7 +5,9 @@ export const activities = async (id, url, select) => {
 
     if (url != null) {
         console.log("if")
-        data = await GetData(url, select || null);
+        const options = '?page=1&limit=8'
+
+        data = await GetData(url, select || null, options);
     }
     else {
         console.log("else")

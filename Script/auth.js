@@ -1,3 +1,5 @@
+import { autoCloseAlert, basicAlert, loginAlert } from "./common.js";
+
 const bashedURL = 'https://adust-travllers-backend.vercel.app/api/v1';
 // const bashedURL = 'http://localhost:5000/api/v1';
 
@@ -46,16 +48,16 @@ window.addEventListener("load", () => {
             const data = Object.fromEntries(formData.entries());
 
             if (!isValidEmail(data?.email)) {
-                return alert("Invalid email address");
+                return basicAlert("Invalid email address", "warning");
             }
 
 
 
             if (!isValidBDNumber(data?.phone)) {
-                return alert("Invalid number!");
+                return basicAlert("Invalid number!", 'warning');
             }
             if (!isPasswordSame(data?.password, data?.confirmPassword)) {
-                return alert("Password doesn't match!");
+                return basicAlert("Password doesn't match!", "error");
             }
 
             delete data.confirmPassword;
@@ -78,17 +80,16 @@ window.addEventListener("load", () => {
                 const result = await response.json();
 
                 if (result?.success == false) {
-                    return alert(result?.message)
+                    return basicAlert(result?.message, "error");
                 }
                 else {
-                    alert("Registration successful, please login");
-                    window.location.assign('/auth/login.html');
+                    loginAlert("Registration successful", "success");
                 }
 
 
             } catch (error) {
                 console.error('Error:', error);
-                alert('An error occurred while submitting the form.');
+                basicAlert('An error occurred while submitting the form.', "error");
             }
         })
     }
@@ -116,17 +117,30 @@ window.addEventListener("load", () => {
 
                 if (result?.success == false) {
                     localStorage.removeItem("ak-secret");
-                    return alert(result?.message);
+                    return basicAlert(result?.message, "error")
                 }
                 else {
                     localStorage.setItem("ak-secret", result?.data);
-                    window.location.assign("/dashboard/index.html");
-                    alert("Login successfully");
+                    Swal.fire({
+                        title: "Login successfully",
+                        showCancelButton: true,
+                        cancelButtonText: "Home",
+                        confirmButtonText: "Dashboard",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.assign("/dashboard/index.html");
+                        }
+                        else if (result.isDismissed) {
+                            window.location.assign("/index.html");
+                        }
+                    });
+
                 }
 
             } catch (error) {
                 console.error('Error:', error);
-                alert('An error occurred while submitting the form.');
+                basicAlert("An error occurred while submitting the form.", "error");
+
             }
         })
     }

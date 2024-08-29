@@ -47,15 +47,15 @@ const swiper = new Swiper('.swiper', {
 });
 
 
-export const destinations = async (id, url, select) => {
+export const destinations = async (id, url, select, options) => {
     let data;
 
     const container = document.getElementById(id);
 
     if (url != null) {
-        data = await GetData(url, select || null);
+        data = await GetData(url, select || null, options);
 
-        data?.data?.map(singleData => {
+        data?.data?.data?.map(singleData => {
             const div = document.createElement("div");
 
             div.classList.add("swiper-slide");
@@ -72,7 +72,45 @@ export const destinations = async (id, url, select) => {
         })
     }
     else {
-        data = select;
+        data = select?.data;
+
+
+        const allSearchParams = window.location.search.split("?")?.[1]?.split("&");
+        const pathname = window.location.pathname;
+
+        let searchObj = {};
+        allSearchParams?.forEach(s => {
+            const arr = s.split("=");
+            searchObj[`${arr[0]}`] = arr[1];
+        })
+        const totalPages = Math.ceil(select?.data?.totalDocuments / 4);
+
+        let locationURL = window.location.href + '?limit=4&page=';
+
+        console.log({ totalPages, locationURL, searchObj, pathname, p: select?.data?.totalDocuments })
+
+        if (searchObj?.page && searchObj?.limit) {
+            locationURL = pathname + '?';
+            allSearchParams?.forEach((sp, index) => {
+                if (sp?.split('=')?.[0] !== "page") {
+                    locationURL += `${sp}&`
+                }
+            });
+
+            locationURL += 'page=';
+
+        }
+
+        const paginationContainer = document.getElementById("destination-pagination");
+        let paginationContents = (searchObj?.page - 1) > 0 ? `<a id="prev-btn" class="pagination-btn" href="${locationURL}${(searchObj?.page - 1)}">Prev</a>` : '<span class="pagination-btn disabled">Prev</span>';
+
+        for (let i = 1; i <= totalPages; i++) {
+            paginationContents += `<a  href="${locationURL}${i}" class="pagination-btn ${searchObj?.page == i ? 'active-pagination-btn disabled' : ''} ${!searchObj?.page && i == 1 ? 'active-pagination-btn disabled' : ''}">${i}</a>`
+        }
+
+        paginationContents += (searchObj?.page < totalPages) ? `<a id="next-btn" class="pagination-btn" href="${locationURL}${(parseInt(searchObj?.page) + 1)}">Next</a>` : '<span class="pagination-btn disabled">Next</span>';
+
+        paginationContainer.innerHTML = paginationContents;
 
         data?.data?.map(singleData => {
             const div = document.createElement("div");

@@ -1,9 +1,11 @@
-const select = new SlimSelect({
-    select: '#selectElement',
-    settings: {
-        placeholderText: 'Search a place or activity',
-    }
-})
+import { basicAlert } from "./common.js";
+
+// const select = new SlimSelect({
+//     select: '#selectElement',
+//     settings: {
+//         placeholderText: 'Search a place or activity',
+//     }
+// })
 
 
 export function formatDate(date) {
@@ -27,8 +29,6 @@ export function getCurrentAndFutureDate(future) {
         futureDate: formattedFutureDate
     };
 }
-
-
 
 
 function addDaysToDate(date, days) {
@@ -87,7 +87,7 @@ function showSelectedDateRange() {
 
     } else {
         console.log("No complete date range selected.");
-        alert("Please select a complete date range.");
+        basicAlert("Please select a complete date range.", "warning");
     }
 }
 
@@ -100,3 +100,8 @@ document.getElementById("handleSearch").addEventListener("click", async () => {
 
     window.location.assign(`/destination/search.html?query=${searchText}&startDate=${startDate}&endDate=${endDate}`);
 })
+
+
+
+
+

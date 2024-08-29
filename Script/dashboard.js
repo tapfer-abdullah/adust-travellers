@@ -1,3 +1,5 @@
+import { basicAlert, loginAlert } from "./common.js";
+
 const bashedURL = 'https://adust-travllers-backend.vercel.app/api/v1';
 // const bashedURL = 'http://localhost:5000/api/v1';
 
@@ -58,8 +60,8 @@ window.addEventListener("load", async () => {
 
         if (!token) {
             localStorage.removeItem("ak-secret");
-            window.location.assign("/auth/login.html");
-            return alert("Session expired, please login!");
+
+            return loginAlert("Session expired, please login!", 'error');
         }
 
 
@@ -75,8 +77,8 @@ window.addEventListener("load", async () => {
 
             if (response?.status == 401) {
                 localStorage.removeItem("ak-secret");
-                window.location.assign("/auth/login.html");
-                return alert("Session expired, please login!");
+
+                return loginAlert("Session expired, please login!", "error");
             }
 
 
@@ -88,12 +90,13 @@ window.addEventListener("load", async () => {
 
 
             if (!data?.success) {
-                return alert(data?.message)
+                return basicAlert(data?.message, "error")
             }
 
 
         } catch (error) {
             console.error('Error fetching data:', error.message); // Log any errors
+            basicAlert(error.message, "error")
         }
 
 
@@ -116,7 +119,7 @@ window.addEventListener("load", async () => {
             if (response?.status == 401) {
                 localStorage.removeItem("ak-secret");
                 window.location.assign("/index.html");
-                return alert("Session expired, please login!");
+                return loginAlert("Session expired, please login!", "error");
             }
 
             const data = await response.json(); // Parse the JSON data from the response
@@ -124,7 +127,7 @@ window.addEventListener("load", async () => {
 
 
             if (!data?.success) {
-                return alert(data?.message)
+                return basicAlert(data?.message, "error");
             }
 
             const ordersContainer = document.getElementById("all-orders-container");
@@ -230,7 +233,7 @@ window.addEventListener("load", async () => {
                 if (result?.success) {
                     document.getElementById('nav-profile-img').src = result?.data?.result?.image;
                     localStorage.setItem('ak-secret', result?.data?.jwtRes); // Update JWT token if returned
-                    alert('Info updated!');
+                    basicAlert('Info updated!', "success");
                 }
 
             } catch (error) {
@@ -256,6 +259,11 @@ window.addEventListener("load", async () => {
 
 document.getElementById("log-out").addEventListener("click", () => {
     localStorage.removeItem("ak-secret");
-    window.location.assign("/index.html");
-    alert("Log out successful!")
+    Swal.fire({
+        icon: "success",
+        title: "Log out successful!",
+    }).then(() => {
+        window.location.assign("/index.html");
+    })
+    // loginAlert("Log out successful!");
 })

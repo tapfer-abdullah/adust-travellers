@@ -68,9 +68,9 @@ export const GetDataByRef = async (url) => {
     }
 }
 
-export const searchDestination = async (searchText, startDate, endDate) => {
+export const searchDestination = async (searchText, startDate, endDate, options = "") => {
     try {
-        const response = await fetch(`${bashedURL}/activity/search`, {
+        const response = await fetch(`${bashedURL}/activity/search${options}`, {
             method: "PATCH",
             body: JSON.stringify({ startDate, endDate, searchText }),
             headers: {

@@ -14,8 +14,10 @@ window.addEventListener("load", async () => {
         searchObj[`${arr[0]}`] = arr[1];
     })
 
+    console.log({ searchObj, allSearchParams, pathname, url: window.location.href })
 
-    //destination
+
+    //single destination
     if (pathname == "/destination/index.html") {
         await destinationByID("destination", searchObj?.id);
     }
@@ -36,16 +38,22 @@ window.addEventListener("load", async () => {
         }
 
         const notFound = document.getElementById("not-found");
+        const page = searchObj?.page || 1, limit = searchObj?.limit || 6;
+
+
+
         if (searchObj?.query === 'all') {
             const searchBanner = document.getElementById("search-banner");
             searchBanner.innerHTML = `<h1>All Activities</h1>`;
             notFound.classList.add("hidden");
 
-            await activities("search-activities-container", "activity");
+
+
+            await activities("search-activities-container", "activity", undefined, `?page=${page}&limit=${limit}`);
         }
         else {
             const { query, startDate, endDate } = searchObj;
-            const data = await searchDestination(query, startDate, endDate);
+            const data = await searchDestination(query, startDate, endDate, `?page=${page}&limit=${limit}`);
 
             const searchBanner = document.getElementById("search-banner");
 
@@ -56,7 +64,7 @@ window.addEventListener("load", async () => {
                         <p>All activities from ${formateDate(startDate)} to ${formateDateMinusOne(endDate)}</p>`
 
                 notFound.classList.add("hidden");
-                await activities("search-activities-container", null, data);
+                await activities("search-activities-container", null, data, `?page=${page}&limit=${limit}`);
             }
             else {
                 searchBanner.innerHTML = `<h1>${query}</h1>
@@ -68,19 +76,21 @@ window.addEventListener("load", async () => {
             }
         }
     }
+    // all destinations
     else if (pathname == "/destination/all.html") {
 
         const notFound = document.getElementById("not-found");
 
-
-        const data = await GetData("destination", "name0images");
+        const page = searchObj?.page || 1, limit = searchObj?.limit || 4;
+        const data = await GetData("destination", "name0images", `&page=${page}&limit=${limit}`);
 
         const allDestinations = document.getElementById("all-destinations-container");
 
 
-        const length = data?.data?.length;
+        const length = data?.data?.totalDocuments;
+
         if (length > 0) {
-            await destinations("all-destinations-container", null, data);
+            await destinations("all-destinations-container", null, data, `?page=${page}&limit=${limit}`);
             notFound.classList.add("hidden");
         }
         else {

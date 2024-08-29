@@ -1,14 +1,15 @@
+import { basicAlert } from "./common.js";
 import { activities } from "./HomeContents/Activities.js";
 import { destinations } from "./HomeContents/Destinations.js";
 
 
 // select / search destination 
-const select = new SlimSelect({
-    select: '#selectElement',
-    settings: {
-        placeholderText: 'Search a place or activity',
-    }
-})
+// const select = new SlimSelect({
+//     select: '#selectElement',
+//     settings: {
+//         placeholderText: 'Search a place or activity',
+//     }
+// })
 
 
 export const swiper1 = new Swiper(".mySwiper2", {
@@ -165,7 +166,7 @@ function showSelectedDateRange() {
 
     } else {
         console.log("No complete date range selected.");
-        alert("Please select a complete date range.");
+        basicAlert("Please select a complete date range.", "warning");
     }
 }
 
@@ -184,7 +185,10 @@ document.getElementById("handleSearch").addEventListener("click", async () => {
 window.addEventListener('load', async () => {
     // id, url, select
     await destinations("destination-wrapper", "destination", "name0images");
-    await activities("top-activities-carts-container", "activity");
+    // await activities("top-activities-carts-container", "activity");
+    await activities("top-activities-carts-container", "activity", undefined, `?page=1&limit=8`);
+
+    // alert("welcome")
 });
 
 

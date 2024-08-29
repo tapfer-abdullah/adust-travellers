@@ -85,6 +85,11 @@ nav {
     }
 }
 
+#smallNav-open,
+#smallNav-close {
+    cursor: pointer;
+}
+
 /* footer  */
 footer {
     background-color: black;
@@ -553,7 +558,27 @@ footer {
     }
 }
 
+/* pagination */
+#activity-pagination,
+#destination-pagination {
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 30px;
 
+    .pagination-btn {
+        cursor: pointer;
+        background-color: #00ACEE;
+        color: white;
+        padding: 5px 10px;
+        margin: 0 3px;
+        font-weight: 600;
+        border-radius: 5px;
+    }
+
+    .active-pagination-btn {
+        background-color: #fb9611;
+    }
+}
 
 
 

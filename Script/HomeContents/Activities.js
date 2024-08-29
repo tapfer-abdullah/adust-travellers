@@ -1,22 +1,62 @@
 import { GetData, GetDataByID } from "../../Helper/fetchData.js";
 
-export const activities = async (id, url, select) => {
+
+export const activities = async (id, url, select, options) => {
+
+    const allSearchParams = window.location.search.split("?")?.[1]?.split("&");
+    const pathname = window.location.pathname;
+    let searchObj = {};
+    allSearchParams?.forEach(s => {
+        const arr = s.split("=");
+        searchObj[`${arr[0]}`] = arr[1];
+    })
+
     let data;
-
     if (url != null) {
-        console.log("if")
-        const options = '?page=1&limit=8'
-
         data = await GetData(url, select || null, options);
     }
     else {
-        console.log("else")
         data = select;
     }
-    console.log({ url, data })
+
+    if (options != '?page=1&limit=8')// limit = 8, means the request come from home
+    {
+
+        const totalPages = Math.ceil(data?.data?.totalDocuments / 6);
+
+        let locationURL = window.location.href + '&limit=6&page=';
+
+        if (searchObj?.page && searchObj?.limit) {
+            locationURL = pathname + '?';
+            allSearchParams?.forEach((sp, index) => {
+                if (sp?.split('=')?.[0] !== "page") {
+                    locationURL += `${sp}&`
+                }
+            });
+
+            locationURL += 'page=';
+
+        }
+
+        const paginationContainer = document.getElementById("activity-pagination");
+        let paginationContents = (searchObj?.page - 1) > 0 ? `<a id="prev-btn" class="pagination-btn" href="${locationURL}${(searchObj?.page - 1)}">Prev</a>` : '<span class="pagination-btn disabled">Prev</span>';
+
+        for (let i = 1; i <= totalPages; i++) {
+
+
+            paginationContents += `<a  href="${locationURL}${i}" class="pagination-btn ${searchObj?.page == i ? 'active-pagination-btn disabled' : ''} ${!searchObj?.page && i == 1 ? 'active-pagination-btn disabled' : ''}">${i}</a>`
+        }
+
+        paginationContents += (searchObj?.page < totalPages) ? `<a id="next-btn" class="pagination-btn" href="${locationURL}${(parseInt(searchObj?.page) + 1)}">Next</a>` : '<span class="pagination-btn disabled">Next</span>';
+
+        paginationContainer.innerHTML = paginationContents;
+
+        // const totalPages = 
+    }
+
     const container = document.getElementById(id);
 
-    data?.data?.map(singleData => {
+    data?.data?.data?.map(singleData => {
         const a = document.createElement("a");
         a.href = `/destination/details.html?id=${singleData?._id}`;
 
@@ -62,6 +102,8 @@ export const activities = async (id, url, select) => {
     })
 
 }
+
+
 
 function formateDate(date) {
     const dateObj = new Date(date);
@@ -114,6 +156,7 @@ export const activityByID = async (url, pageID) => {
     tourDesc.innerHTML = `${data?.data?.tourDescription}`;
 
     const condition = (currentDate >= selectedDate) || (data?.data?.totalSeats - data?.data?.booked === 0);
+    // console.log({ condition, data: data?.data, currentDate, selectedDate, d: currentDate >= selectedDate })
 
     cart.innerHTML = `
                     <div>

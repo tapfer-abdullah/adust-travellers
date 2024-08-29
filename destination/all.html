@@ -14,6 +14,8 @@
     </link>
     <!-- jwt  -->
     <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+    <!-- sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -40,10 +42,9 @@
             <!-- other contents  -->
             <div class="w-1200px">
                 <div class="destination-container">
-                    <div id="not-found">
-                    </div>
-                    <div id="all-destinations-container">
-                    </div>
+                    <div id="not-found"></div>
+                    <div id="all-destinations-container"></div>
+                    <div id="destination-pagination"></div>
                 </div>
             </div>
         </div>
@@ -58,7 +59,7 @@
 
     <!-- javascript -->
     <script type="module" src="/Script/main.js"></script>
-    <script src="/Script/common.js"></script>
+    <script type="module" src="/Script/common.js"></script>
     <script src="/Script/Store/cart.js"></script>
     <script type="module" src="/Script/destination.js"></script>
 

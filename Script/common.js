@@ -26,3 +26,31 @@ const toast = (title) => {
 // }
 
 // decodeAndVerifyJwt(token);
+
+export const basicAlert = (title, type) => {
+    // question info warning error success
+    Swal.fire({
+        icon: type || "info",
+        title: title,
+    });
+}
+
+export const autoCloseAlert = (title, type) => {
+    Swal.fire({
+        // position: "top-center",
+        icon: type || "info",
+        title: title,
+        showConfirmButton: false,
+        timer: 1500
+    });
+}
+
+export const loginAlert = (title, type) => {
+    Swal.fire({
+        icon: type || "info",
+        title: title,
+        confirmButtonText: "Log In",
+    }).then((result) => {
+        window.location.assign('/auth/login.html');
+    });
+}

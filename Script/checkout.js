@@ -1,3 +1,5 @@
+import { basicAlert } from "./common.js";
+
 const bashedURL = 'https://adust-travllers-backend.vercel.app/api/v1';
 // const bashedURL = 'http://localhost:5000/api/v1';
 
@@ -22,7 +24,7 @@ form.addEventListener("submit", async function (event) {
     }
 
     if (cart?.length == 0) {
-        return alert("empty cart!")
+        return basicAlert("empty cart!", 'warning')
     }
 
     // Create a new FormData object from the form
@@ -57,7 +59,7 @@ form.addEventListener("submit", async function (event) {
         const result = await response.json();
 
         if (result?.status == false) {
-            return alert(result?.message)
+            return basicAlert(result?.message, "error")
         }
 
         window.location.assign(result?.url);
@@ -66,7 +68,7 @@ form.addEventListener("submit", async function (event) {
     } catch (error) {
         // Handle errors (e.g., network issues, server errors, etc.)
         console.error('Error:', error);
-        alert('An error occurred while submitting the form.');
+        basicAlert('An error occurred while submitting the form.', "error");
     }
 
 
@@ -75,6 +77,7 @@ form.addEventListener("submit", async function (event) {
 const discountForm = document.getElementById("discount-code-form");
 
 discountForm.addEventListener("submit", async function (event) {
+    console.log("event", event)
     event.preventDefault();
 
     const discountCode = event.target.cartDiscount.value;
@@ -88,7 +91,7 @@ discountForm.addEventListener("submit", async function (event) {
 
         const invalidP = document.getElementById("discount-invalid");
         if (result?.status == false) {
-            return alert(result?.message)
+            return basicAlert(result?.message, "warning")
         }
 
         // document.getElementById("discount-invalid").innerText = ''
@@ -117,7 +120,7 @@ discountForm.addEventListener("submit", async function (event) {
             }
 
             invalidP.innerText = `Invalid discount code: '${discountCode}'`;
-            return alert("Invalid discount code!")
+            return basicAlert("Invalid discount code!", "warning")
         }
         else {
             invalidP.innerText = ``;
@@ -165,7 +168,7 @@ discountForm.addEventListener("submit", async function (event) {
     } catch (error) {
         // Handle errors (e.g., network issues, server errors, etc.)
         console.error('Error:', error);
-        alert('An error occurred while submitting the form.');
+        basicAlert('An error occurred while submitting the form.', "error");
     }
 })
 

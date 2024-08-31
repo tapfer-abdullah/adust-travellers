@@ -19,7 +19,7 @@ export const activities = async (id, url, select, options) => {
         data = select;
     }
 
-    if (options != '?page=1&limit=8')// limit = 8, means the request come from home
+    if (data?.data?.data?.length > 0 && options != '?page=1&limit=8')// limit = 8, means the request come from home
     {
 
         const totalPages = Math.ceil(data?.data?.totalDocuments / 6);
@@ -52,6 +52,12 @@ export const activities = async (id, url, select, options) => {
         paginationContainer.innerHTML = paginationContents;
 
         // const totalPages = 
+    }
+    else {
+        const notFound = document.getElementById("not-found");
+        notFound.classList.remove('hidden')
+        notFound.innerHTML = `<img src="/public/assets/icon/warning.svg" alt="">
+                    <p>Not found any activities !</p></div>`
     }
 
     const container = document.getElementById(id);

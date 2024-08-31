@@ -127,11 +127,6 @@ export const destinations = async (id, url, select, options) => {
             container.appendChild(div)
         })
     }
-
-
-
-
-
 }
 
 
@@ -172,12 +167,15 @@ export const destinationByID = async (url, pageID) => {
 
     activitiesTitle.innerText = `Activities in ${data?.data?.name}`;
 
-    sliderData?.data?.data?.map(singleData => {
-        const sliderDiv = document.getElementById("single-destination-page-activities-slider");
-        const slide = document.createElement("div");
-        slide.classList.add("swiper-slide");
+    const sliderDiv = document.getElementById("single-destination-page-activities-slider");
 
-        slide.innerHTML = `<a href='/destination/details.html?id=${singleData?._id}'>
+    const length = sliderData?.data?.data?.length;
+    if (length > 0) {
+        sliderData?.data?.data?.map(singleData => {
+            const slide = document.createElement("div");
+            slide.classList.add("swiper-slide");
+
+            slide.innerHTML = `<a href='/destination/details.html?id=${singleData?._id}'>
         <div class="activity-card">
         <img src=${singleData?.images?.[0]}
             alt="">
@@ -217,9 +215,51 @@ export const destinationByID = async (url, pageID) => {
     </div>
     </a>`
 
-        sliderDiv.appendChild(slide);
-    })
+            sliderDiv.appendChild(slide);
+        })
+    }
+    else {
+        sliderDiv.innerHTML = `<div class="not-found">
+        <img src="/public/assets/icon/warning.svg" alt="">
+                <p>Not found any activities !</p></div>`
+    }
 
+}
+
+export const homeDedicatedDestinations = async (id) => {
+    const id1 = "66d329fa58a26ac50a9ddcbd";
+    const id2 = "66d327afe2b6130a50a34c5f";
+    const dest1 = await GetDataByID(`destination`, id1);
+    const dest2 = await GetDataByID(`destination`, id2);
+    console.log({ dest1, dest2, id })
+
+    const container = document.getElementById(id);
+    container.innerHTML = `
+    <div class="inspired-card">
+                        <img src="https://www.tusktravel.com/blog/wp-content/uploads/2019/10/Gadi-Sagar-Lake-Jaisalmer.jpg"
+                            alt="">
+                        <div class="overlay"></div>
+                        <div class="inspired-card-content">
+                            <div>
+                                <h3>India (Kolkata, Khasmir, Agra, Kerela, Jaipur)</h3>
+                                <p>India is a culturally diverse country with numerous tourist attractions. Key highlights include the iconic Taj Mahal in Agra, Kashmir, known as "Paradise on Earth" and so on</p>
+                            </div>
+                            <button id="inspired-btn-1" class="btn-solid"><a href="/destination/index.html?id=66d329fa58a26ac50a9ddcbd">See all activities</a></button>
+                        </div>
+                    </div>
+                    <div class="inspired-card">
+                        <img src="https://cosmosgroup.sgp1.digitaloceanspaces.com/news/9782559_best%20tea%20gardens%20Bangladesh.jpg"
+                            alt="">
+                        <div class="overlay"></div>
+                        <div class="inspired-card-content">
+                            <div>
+                                <h3>Sylhet (Srimongol, Ratargul, Jaflong, Volagong)</h3>
+                                <p>Sylhet is a picturesque region in northeastern Bangladesh, renowned for its lush tea gardens, rolling hills, and vibrant cultural heritage.</p>
+                            </div>
+                            <button id="inspired-btn-1" class="btn-solid"><a href="/destination/index.html?id=66d327afe2b6130a50a34c5f">See all activities</a></button>
+                        </div>
+                    </div>
+    `
 }
 
 

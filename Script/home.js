@@ -1,6 +1,7 @@
+
 import { basicAlert, loadSearchFunction } from "./common.js";
 import { activities } from "./HomeContents/Activities.js";
-import { destinations } from "./HomeContents/Destinations.js";
+import { destinations, homeDedicatedDestinations } from "./HomeContents/Destinations.js";
 
 
 export const swiper1 = new Swiper(".mySwiper2", {
@@ -168,14 +169,21 @@ document.getElementById("handleSearch").addEventListener("click", async () => {
 
 
 window.addEventListener('load', async () => {
+    // search 
+    await loadSearchFunction();
     // id, url, select
     await destinations("destination-wrapper", "destination", "name0images");
+
+    // 2 dedicated places in home 
+    // await homeDedicatedDestinations("home-dedicated-destination");
+
+
     // await activities("top-activities-carts-container", "activity");
     await activities("top-activities-carts-container", "activity", undefined, `?page=1&limit=8`);
 
     // alert("welcome")
 
-    await loadSearchFunction();
+
 });
 
 

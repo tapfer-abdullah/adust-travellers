@@ -2,6 +2,20 @@
     margin-bottom: 30px;
 }
 
+.not-found {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    img {
+        width: 30px;
+    }
+
+    p {
+        font-weight: 600;
+        color: red;
+    }
+}
 
 .contents {
     position: relative;

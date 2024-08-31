@@ -44,12 +44,16 @@ window.addEventListener("load", async () => {
 
         if (searchObj?.query === 'all') {
             const searchBanner = document.getElementById("search-banner");
-            searchBanner.innerHTML = `<h1>All Activities</h1>`;
+
             notFound.classList.add("hidden");
 
-
-
-            await activities("search-activities-container", "activity", undefined, `?page=${page}&limit=${limit}`);
+            if (searchObj?.isInternational == "true") {
+                searchBanner.innerHTML = `<h1>International Activities</h1>`;
+                await activities("search-activities-container", "activity", undefined, `?page=${page}&limit=${limit}&isInternational=true`);
+            } else {
+                searchBanner.innerHTML = `<h1>All Activities</h1>`;
+                await activities("search-activities-container", "activity", undefined, `?page=${page}&limit=${limit}`);
+            }
         }
         else {
             const { query, startDate, endDate } = searchObj;

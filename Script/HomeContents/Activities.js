@@ -55,9 +55,12 @@ export const activities = async (id, url, select, options) => {
     }
     else {
         const notFound = document.getElementById("not-found");
-        notFound.classList.remove('hidden')
-        notFound.innerHTML = `<img src="/public/assets/icon/warning.svg" alt="">
+        if (notFound) {
+            notFound.classList.remove('hidden')
+            notFound.innerHTML = `<img src="/public/assets/icon/warning.svg" alt="">
                     <p>Not found any activities !</p></div>`
+        }
+
     }
 
     const container = document.getElementById(id);

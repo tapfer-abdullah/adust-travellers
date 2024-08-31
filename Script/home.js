@@ -1,7 +1,7 @@
 
 import { basicAlert, loadSearchFunction } from "./common.js";
 import { activities } from "./HomeContents/Activities.js";
-import { destinations, homeDedicatedDestinations } from "./HomeContents/Destinations.js";
+import { destinations, homeDedicatedDestinations, interNationalTours } from "./HomeContents/Destinations.js";
 
 
 export const swiper1 = new Swiper(".mySwiper2", {
@@ -180,6 +180,7 @@ window.addEventListener('load', async () => {
 
     // await activities("top-activities-carts-container", "activity");
     await activities("top-activities-carts-container", "activity", undefined, `?page=1&limit=8`);
+    await interNationalTours('InternationalTourContainer');
 
     // alert("welcome")
 

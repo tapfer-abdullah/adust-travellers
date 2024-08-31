@@ -226,6 +226,48 @@ export const destinationByID = async (url, pageID) => {
 
 }
 
+export const interNationalTours = async (id) => {
+    function formattedDateDate(dateString) {
+        const date = new Date(dateString);
+
+        // Extract day, month, and year
+        const day = date.getUTCDate();
+        const month = date.toLocaleString('default', { month: 'long' });
+        const year = date.getUTCFullYear();
+
+        // Format the date
+        const formattedDate = `${day} ${month} ${year}`;
+        return formattedDate;
+    }
+    const sliderData = await GetData("activity", null, '?isInternational=true');
+    console.log({ id, sliderData })
+    const sliderDiv = document.getElementById(id);
+    sliderData.innerHTML = ''
+
+    sliderData?.data?.data?.map(singleData => {
+        const slide = document.createElement("div");
+        slide.classList.add("swiper-slide");
+
+        slide.innerHTML = `<a href='/destination/details.html?id=${singleData?._id}'>
+        <div class="home-blog-card">
+                                    <img src=${singleData?.images?.[0]}
+                                        alt="">
+                                    <div class="home-blog-content">
+                                        <div class="flex gap-3 items-center">
+                <p class="way way-rail">${singleData?.way?.[0]}</p>
+                <p class="way way-cruise">${singleData?.way?.[1]}</p>
+            </div>
+                                        <h3>${singleData?.name}</h3>
+                                        <p class="">${singleData?.startingDate ? formattedDateDate(singleData?.startingDate) : 'To Be announce'}</p>
+                                        <p class="capitalized">${singleData?.location}</p>
+                                    </div>
+                                </div>
+    </a>`
+
+        sliderDiv.appendChild(slide);
+    })
+}
+
 export const homeDedicatedDestinations = async (id) => {
     const id1 = "66d329fa58a26ac50a9ddcbd";
     const id2 = "66d327afe2b6130a50a34c5f";

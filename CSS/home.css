@@ -282,12 +282,12 @@ ion-icon {
 
 
         .activity-card {
-            width: 100%;
+            width: 99%;
             border: 1px solid gray;
             border-radius: 12px;
 
             img {
-                width: inherit;
+                width: 100%;
                 height: 240px;
                 border-radius: inherit;
                 border-bottom-right-radius: 0;
@@ -346,40 +346,12 @@ ion-icon {
                     }
                 }
 
-                .way {
-                    padding: 5px 12px;
-                    border-radius: 8px;
-                    font-weight: 600;
-                }
 
-                .way-escorted {
-                    background-color: gainsboro;
-                    color: #343537;
-                }
-
-                .way-wild {
-                    background-color: #089673;
-                    color: white;
-                }
-
-                .way-rail {
-                    background-color: #fb9611;
-                    color: white;
-                }
-
-                .way-cruise {
-                    background-color: #2ac1dc;
-                    color: white;
-                }
-
-                .way-river {
-                    background-color: #ffcfcf;
-                    color: #8e1b1b;
-                }
             }
         }
     }
 }
+
 
 /* subscribe-container ===============================> */
 .subscribe-container {
@@ -511,12 +483,12 @@ ion-icon {
     }
 
     .home-blog-card {
-        width: 100%;
+        width: 99%;
         border: 1px solid gray;
         border-radius: 12px;
 
         img {
-            width: inherit;
+            width: 100%;
             height: 180px;
             border-radius: inherit;
             border-bottom-right-radius: 0;
@@ -527,9 +499,31 @@ ion-icon {
             padding: 5px 12px;
             border-radius: 8px;
             font-weight: 600;
+        }
+
+        .way-escorted {
             background-color: gainsboro;
-            color: rgb(52, 53, 55);
-            width: fit-content;
+            color: #343537;
+        }
+
+        .way-wild {
+            background-color: #089673;
+            color: white;
+        }
+
+        .way-rail {
+            background-color: #fb9611;
+            color: white;
+        }
+
+        .way-cruise {
+            background-color: #2ac1dc;
+            color: white;
+        }
+
+        .way-river {
+            background-color: #ffcfcf;
+            color: #8e1b1b;
         }
 
         .home-blog-content {

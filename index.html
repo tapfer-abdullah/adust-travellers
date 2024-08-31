@@ -10,9 +10,6 @@
     <!-- other links  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <!-- seam select  -->
-    <!-- <script src="https://unpkg.com/slim-select@latest/dist/slimselect.min.js"></script>
-    <link href="https://unpkg.com/slim-select@latest/dist/slimselect.css" rel="stylesheet"> -->
     <!-- jwt  -->
     <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
     <!-- swal  -->
@@ -47,38 +44,28 @@
                                     <p class="icon"><ion-icon name="location-outline"></ion-icon></p>
                                     <div>
                                         <label for="search-title">Where to?</label> <br>
-                                        <!-- <input type="text" name="search-title" id="search-title"
-                                            placeholder="Search a place or activity"> -->
-                                        <select class="where-selector" id="selectElement">
-                                            <!-- <option disabled selected>Search place</option> -->
-                                            <option data-placeholder="true"></option>
-                                            <option>Option 1</option>
-                                            <option>Option 2</option>
-                                            <option>lorem10</option>
-                                            <option>land</option>
-                                            <option>Cox</option>
-                                            <option>Ck</option>
-                                        </select>
+                                        <div class="custom-select">
+                                            <input type="search" id="searchInput"
+                                                placeholder="Search a place or activity">
+                                            <div id="optionsList" class="options-list"></div>
+                                        </div>
+
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-3">
                                     <p class="icon"><ion-icon name="calendar-clear-outline"></ion-icon></p>
                                     <div>
                                         <label for="search-date-from">When?</label> <br>
-                                        <!-- <div class="flex items-center gap-3">
-                                            <input type="date" name="search-date-from" id="search-date-from">
-                                            <span>To:</span>
-                                            <input type="date" name="search-date-to" id="search-date-to">
-                                        </div> -->
                                         <input type="text" id="date-range" placeholder="Select Date Range">
                                     </div>
-
                                 </div>
 
                                 <div id="handleSearch" class="icon search-icon cursor-pointer"><ion-icon
                                         name="search-outline"></ion-icon>
                                 </div>
                             </form>
+
+
 
 
                         </div>

@@ -172,7 +172,7 @@ export const destinationByID = async (url, pageID) => {
 
     activitiesTitle.innerText = `Activities in ${data?.data?.name}`;
 
-    sliderData?.data?.map(singleData => {
+    sliderData?.data?.data?.map(singleData => {
         const sliderDiv = document.getElementById("single-destination-page-activities-slider");
         const slide = document.createElement("div");
         slide.classList.add("swiper-slide");

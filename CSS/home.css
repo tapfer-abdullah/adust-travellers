@@ -16,6 +16,7 @@
     top: 50%;
     left: 50%;
     translate: -50% -50%;
+    /* width: 80%; */
 
     h1 {
         color: white;
@@ -80,6 +81,34 @@
             color: white;
         }
     }
+
+    .search-div {
+        position: relative;
+
+        #search-title {}
+
+        #search-title:focus~#suggestions {
+            /* display: block; */
+        }
+
+        #suggestions {
+            padding: 3px 10px;
+            background-color: #2ac1dc;
+            position: absolute;
+            width: inherit;
+            /* display: none; */
+
+            li {
+                list-style: none;
+                background-color: rgb(165, 172, 172);
+                margin: 1px 0;
+                padding: 2px;
+                cursor: pointer;
+            }
+        }
+    }
+
+
 }
 
 /* icon style ==================================> */
@@ -550,6 +579,7 @@ ion-icon {
 @media only screen and (max-width: 576px) {
 
     .banner-contents {
+        width: 80%;
 
         h1 {
             font-size: 30px;
@@ -666,4 +696,48 @@ ion-icon {
     .home-blog-container {
         margin-bottom: 15px;
     }
+}
+
+
+
+
+
+
+.custom-select {
+    position: relative;
+    width: 250px;
+}
+
+#searchInput {
+    cursor: pointer;
+}
+
+.options-list {
+    display: none;
+    /* Hidden by default */
+    position: absolute;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-top: none;
+    background-color: white;
+    max-height: 150px;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.option {
+    padding: 10px;
+    cursor: pointer;
+    color: black !important;
+    background-color: white !important;
+
+    p,
+    div {
+        color: inherit !important;
+    }
+}
+
+.option:hover {
+    background-color: #f0f0f0 !important;
 }

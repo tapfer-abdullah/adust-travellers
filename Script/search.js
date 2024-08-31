@@ -1,12 +1,4 @@
-import { basicAlert } from "./common.js";
-
-// const select = new SlimSelect({
-//     select: '#selectElement',
-//     settings: {
-//         placeholderText: 'Search a place or activity',
-//     }
-// })
-
+import { basicAlert, loadSearchFunction } from "./common.js";
 
 export function formatDate(date) {
     const day = String(date.getDate()).padStart(2, '0');
@@ -94,14 +86,14 @@ function showSelectedDateRange() {
 
 document.getElementById("handleSearch").addEventListener("click", async () => {
     const { startDate, endDate } = showSelectedDateRange();
-    const searchText = select.getSelected()?.[0];
-    // const result = await searchDestination(searchText, startDate, endDate);
-    // console.log({ searchText })
+    const searchText = document.getElementById('searchInput').value;
 
     window.location.assign(`/destination/search.html?query=${searchText}&startDate=${startDate}&endDate=${endDate}`);
 })
 
 
-
+window.addEventListener("load", async () => {
+    await loadSearchFunction();
+})
 
 

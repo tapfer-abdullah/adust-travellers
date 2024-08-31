@@ -1,15 +1,6 @@
-import { basicAlert } from "./common.js";
+import { basicAlert, loadSearchFunction } from "./common.js";
 import { activities } from "./HomeContents/Activities.js";
 import { destinations } from "./HomeContents/Destinations.js";
-
-
-// select / search destination 
-// const select = new SlimSelect({
-//     select: '#selectElement',
-//     settings: {
-//         placeholderText: 'Search a place or activity',
-//     }
-// })
 
 
 export const swiper1 = new Swiper(".mySwiper2", {
@@ -107,9 +98,6 @@ export function getCurrentAndFutureDate(future) {
     };
 }
 
-
-
-
 function addDaysToDate(date, days) {
     const result = new Date(date);
     result.setDate(result.getDate() + days);
@@ -173,10 +161,7 @@ function showSelectedDateRange() {
 
 document.getElementById("handleSearch").addEventListener("click", async () => {
     const { startDate, endDate } = showSelectedDateRange();
-    const searchText = select.getSelected()?.[0];
-    // const result = await searchDestination(searchText, startDate, endDate);
-    // console.log({ searchText })
-
+    const searchText = document.getElementById('searchInput').value;
     window.location.assign(`/destination/search.html?query=${searchText}&startDate=${startDate}&endDate=${endDate}`);
 })
 
@@ -189,6 +174,8 @@ window.addEventListener('load', async () => {
     await activities("top-activities-carts-container", "activity", undefined, `?page=1&limit=8`);
 
     // alert("welcome")
+
+    await loadSearchFunction();
 });
 
 

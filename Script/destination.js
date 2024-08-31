@@ -14,7 +14,7 @@ window.addEventListener("load", async () => {
         searchObj[`${arr[0]}`] = arr[1];
     })
 
-    console.log({ searchObj, allSearchParams, pathname, url: window.location.href })
+    // console.log({ searchObj, allSearchParams, pathname, url: window.location.href })
 
 
     //single destination
@@ -53,21 +53,32 @@ window.addEventListener("load", async () => {
         }
         else {
             const { query, startDate, endDate } = searchObj;
-            const data = await searchDestination(query, startDate, endDate, `?page=${page}&limit=${limit}`);
+            let key = undefined;
+            if (query.includes('%27s%20')) {
+                key = query?.split("%27s%20").join("'s ");
+            }
+            else if (query.includes('%20')) {
+                key = query?.split("%20").join(" ");
+            }
+            else if (query.includes('%27')) {
+                key = query?.split("%27").join("'");
+            }
+
+            const data = await searchDestination(key || query, startDate, endDate, `?page=${page}&limit=${limit}`);
 
             const searchBanner = document.getElementById("search-banner");
 
 
-            const length = data?.data?.length;
+            const length = data?.data?.totalDocuments;
             if (length > 0) {
-                searchBanner.innerHTML = `<h1>${query}</h1>
+                searchBanner.innerHTML = `<h1>${key || query}</h1>
                         <p>All activities from ${formateDate(startDate)} to ${formateDateMinusOne(endDate)}</p>`
 
                 notFound.classList.add("hidden");
                 await activities("search-activities-container", null, data, `?page=${page}&limit=${limit}`);
             }
             else {
-                searchBanner.innerHTML = `<h1>${query}</h1>
+                searchBanner.innerHTML = `<h1>${key || query}</h1>
                         <p>No activity is available from ${formateDate(startDate)} to ${formateDateMinusOne(endDate)}</p>`
 
                 document.getElementById('search-activities-container').classList.add("hidden");

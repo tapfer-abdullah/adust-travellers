@@ -41,7 +41,7 @@ export const navbar = () => {
     }
 
     return `<div class="content-1">
-    <a href="/">Logo</a>
+    <a href="/"><img src="/public/assets/logo/logo2.svg" alt="Go Trip"></a>
 </div>
 <div class="content-2">
     <a href="/" id="home-link">Home</a>
@@ -93,7 +93,7 @@ export const smallNavbar = () => {
     // menu-icon
 
     return ` <!-- <div></div> -->
-        <a href="/">Logo</a>
+        <a href="/"><img src="/public/assets/logo/logo2.svg" alt="Go Trip"></a>
 
         <div class="content-3 shopping-cart-div">
             <input type="checkbox" id="shopping-icon" />

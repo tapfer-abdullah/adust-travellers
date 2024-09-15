@@ -202,22 +202,22 @@
             }
 
             .way-wild {
-                background-color: rgb(8, 150, 115);
+                background-color: #089673;
                 color: white;
             }
 
             .way-rail {
-                background-color: rgb(251, 150, 17);
+                background-color: #fb9611;
                 color: white;
             }
 
             .way-cruise {
-                background-color: rgb(42, 193, 220);
+                background-color: #2ac1dc;
                 color: white;
             }
 
             .way-river {
-                background-color: rgb(255, 207, 207);
+                background-color: #ffcfcf;
                 color: rgb(142, 27, 27);
             }
         }
